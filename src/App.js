@@ -1,24 +1,25 @@
-import React from 'react';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Error404 from "./pages/Error404";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Navigation />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/projects" component={Projects} />
+      <Route exact path="/contact" component={Contact} />
+      <Route exact path="/about" component={About} />
+      <Route component={Error404} />
+    </Switch>
+    <Footer />
+  </>
+);
 
 export default App;
