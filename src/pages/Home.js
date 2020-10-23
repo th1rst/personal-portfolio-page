@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Typical from "react-typical";
-import Navigation from "../components/Navigation"
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-        setIntroFinished(true);
-    }, 7000);
-
-  }, [setIntroFinished]);
+  const { opacity } = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   return (
-    <div>
+    <animated.div style={{ opacity }}>
       <div className="w-screen h-screen bg-black">
         {introFinished ? null : (
           <div className="text-center">
@@ -39,6 +34,6 @@ export default function Home() {
           </div>
         )}
       </div>
-    </div>
+    </animated.div>
   );
 }
