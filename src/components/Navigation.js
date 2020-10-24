@@ -1,94 +1,140 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Transition } from "@tailwindui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSpring, useTrail, animated } from "react-spring";
 import AnimatedLogo from "./AnimatedLogo";
 
-const mobileNavItems = [
-  <Link
-    to="/projects"
-    className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
-  >
-    <span>Projects</span>
-  </Link>,
-
-  <Link
-    to="/about"
-    className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
-  >
-    <span>About</span>
-  </Link>,
-
-  <Link
-    to="/contact"
-    className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
-  >
-    <span>Contact</span>
-  </Link>,
-];
-
 export default function Navigation() {
-  const [isHidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(true);
 
-  const trail = useTrail(mobileNavItems.length, { opacity: isHidden ? 0 : 1 });
+  const [hoveredProjects, setHoveredProjects] = useState(false);
+  const [hoveredAbout, setHoveredAbout] = useState(false);
+  const [hoveredContact, setHoveredContact] = useState(false);
+
   const { opacity } = useSpring({
     config: { duration: 600 },
-    opacity: isHidden ? 0 : 1,
+    opacity: hidden ? 0 : 1,
   });
+
+  //items for react-spring to map over, mobile version
+  const mobileNavItems = [
+    <Link
+      to="/projects"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      onClick={() => setHidden(true)}
+    >
+      <span>Projects</span>
+    </Link>,
+
+    <Link
+      to="/about"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      onClick={() => setHidden(true)}
+    >
+      <span>About</span>
+    </Link>,
+
+    <Link
+      to="/contact"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      onClick={() => setHidden(true)}
+    >
+      <span>Contact</span>
+    </Link>,
+  ];
+  const trail = useTrail(mobileNavItems.length, { opacity: hidden ? 0 : 1 });
 
   return (
     <div className="border-b border-gray-800 shadow-xl">
-      <nav className="flex items-center bg-black p-3 flex-wrap">
+      <nav className="flex items-center bg-black p-3 flex-wrap transition duration-300 ease-in-out">
         <Link to="/" className="p-2 mr-4 inline-flex items-center">
-          <span className="text-xl text-white font-bold tracking-wide">
-            <AnimatedLogo />
-          </span>
+          <AnimatedLogo />
         </Link>
         <button
-          className="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
-          onClick={() => setHidden(!isHidden)}
+          className="text-white inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler"
+          onClick={() => setHidden(!hidden)}
         >
-          <GiHamburgerMenu />
+          <GiHamburgerMenu className="text-xl" />
         </button>
 
         {/* DESKTOP VERSION */}
         <div className="hidden lg:inline-flex lg:flex-grow lg:w-auto">
           <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto lg:items-center items-start flex flex-col lg:h-auto">
-          
-              <Link
-                to="/projects"
-                className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+            <Link
+              name="link1"
+              onMouseEnter={() => setHoveredProjects(true)}
+              onMouseLeave={() => setHoveredProjects(false)}
+              to="/projects"
+              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+            >
+              <span>Projects</span>
+
+              <Transition
+                show={hoveredProjects}
+                enter="transition-all duration-200"
+                enterFrom="w-0 opacity-0"
+                enterTo="w-11/12 mx-auto opacity-100"
+                leave="transition-all duration-200"
+                leaveFrom="w-11/12 opacity-100"
+                leaveTo="w-0 mx-auto opacity-0"
               >
-                <span>Projects</span>
-                <svg width={60} height={2}>
-                  <line x1="0" x2="60" stroke="white" strokeWidth="2" />
-                </svg>
-              </Link>
-        
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+              </Transition>
+            </Link>
 
             <Link
-              to="/about"
-              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+              onMouseEnter={() => setHoveredAbout(true)}
+              onMouseLeave={() => setHoveredAbout(false)}
+              to="/projects"
+              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
               <span>About</span>
+
+              <Transition
+                show={hoveredAbout}
+                enter="transition-all duration-200"
+                enterFrom="w-0 opacity-0"
+                enterTo="w-11/12 mx-auto opacity-100"
+                leave="transition-all duration-200"
+                leaveFrom="w-11/12 opacity-100"
+                leaveTo="w-0 mx-auto opacity-0"
+              >
+                <div className="h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+              </Transition>
             </Link>
+
             <Link
-              to="/contact"
-              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+              onMouseEnter={() => setHoveredContact(true)}
+              onMouseLeave={() => setHoveredContact(false)}
+              to="/projects"
+              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
               <span>Contact</span>
+
+              <Transition
+                show={hoveredContact}
+                enter="transition-all duration-200"
+                enterFrom="w-0 opacity-0"
+                enterTo="w-11/12 mx-auto opacity-100"
+                leave="transition-all duration-200"
+                leaveFrom="w-11/12 opacity-100"
+                leaveTo="w-0 mx-auto opacity-0"
+              >
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+              </Transition>
             </Link>
           </div>
         </div>
 
         {/* MOBILE VERSION */}
-        {!isHidden ? (
+        {!hidden ? (
           <animated.div style={{ opacity }} className="w-full">
             <ul>
               {trail.map(({ opacity }, i) => {
                 const item = mobileNavItems[i];
                 return (
-                  <animated.li style={{ opacity }} key={item}>
+                  <animated.li style={{ opacity }} key={Math.random() * 1000}>
                     <div className="w-full items-start flex flex-col">
                       {item}
                     </div>
