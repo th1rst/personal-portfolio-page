@@ -21,7 +21,7 @@ export default function Navigation() {
   const mobileNavItems = [
     <Link
       to="/projects"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
       <span>Projects</span>
@@ -29,7 +29,7 @@ export default function Navigation() {
 
     <Link
       to="/about"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
       <span>About</span>
@@ -37,7 +37,7 @@ export default function Navigation() {
 
     <Link
       to="/contact"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center hover:bg-gray-900 hover:text-white"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
       <span>Contact</span>
@@ -48,7 +48,7 @@ export default function Navigation() {
   return (
     <div className="border-b border-gray-800 shadow-xl">
       <nav className="flex items-center bg-black p-3 flex-wrap transition duration-300 ease-in-out">
-        <Link to="/" className="p-2 mr-4 inline-flex items-center">
+        <Link to="/" className="ml-2 inline-flex items-center">
           <AnimatedLogo />
         </Link>
         <button
@@ -68,7 +68,7 @@ export default function Navigation() {
               to="/projects"
               className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
-              <span>Projects</span>
+              <span className="font-semibold">Projects</span>
 
               <Transition
                 show={hoveredProjects}
@@ -79,17 +79,17 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
               </Transition>
             </Link>
 
             <Link
               onMouseEnter={() => setHoveredAbout(true)}
               onMouseLeave={() => setHoveredAbout(false)}
-              to="/projects"
+              to="/about"
               className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
-              <span>About</span>
+              <span className="font-semibold">About</span>
 
               <Transition
                 show={hoveredAbout}
@@ -100,17 +100,17 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+                <div className="h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
               </Transition>
             </Link>
 
             <Link
               onMouseEnter={() => setHoveredContact(true)}
               onMouseLeave={() => setHoveredContact(false)}
-              to="/projects"
+              to="/contact"
               className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
-              <span>Contact</span>
+              <span className="font-semibold">Contact</span>
 
               <Transition
                 show={hoveredContact}
@@ -121,7 +121,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" />
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
               </Transition>
             </Link>
           </div>
@@ -129,7 +129,10 @@ export default function Navigation() {
 
         {/* MOBILE VERSION */}
         {!hidden ? (
-          <animated.div style={{ opacity }} className="w-full">
+          <animated.div
+            style={{ opacity }}
+            className="w-full flex justify-center"
+          >
             <ul>
               {trail.map(({ opacity }, i) => {
                 const item = mobileNavItems[i];

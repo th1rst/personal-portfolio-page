@@ -1,33 +1,50 @@
 // Animation.js
-import React, { useEffect, useState, useRef } from "react";
-import { Spring } from "react-spring/renderprops";
+import React, { useState, useRef } from "react";
+import { useTransition, animated } from "react-spring";
 import { GradientPinkBlue as CircleGradient } from "@vx/gradient";
 
 export default function AnimatedLogo() {
-  const pathRef = useRef();
-  const [offset, setOffset] = useState(null);
-
-  useEffect(() => {
-    setOffset(pathRef.current.getTotalLength());
-  }, [offset]);
+  const [hovered, setHovered] = useState(false);
+  const transitions = useTransition(hovered, null, {
+    from: { position: "absolute", opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
 
   return (
-    <>
-      {offset ? (
-        <Spring from={{ x: 120 }} to={{ x: 0 }} config={{ duration: 1300 }}>
-          {(props) => (
+    <div
+      className="flex items-center justify-center h-16 w-16"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {transitions.map(({ item, key, props }) =>
+        item ? (
+          <animated.div style={props}>
+            <svg
+              width={35}
+              height={35}
+              fill="blue"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <CircleGradient id="gradient" />
+              <polygon
+                fill="url(#gradient)"
+                points="12 0 7 4.58 7 3 3 3 3 8.25 0 11 3 11 3 22 10 22 10 16 14 16 14 22 21 22 21 11 24 11 12 0"
+              />
+            </svg>
+          </animated.div>
+        ) : (
+          <animated.div style={props}>
             <svg width={50} height={50}>
               <CircleGradient id="circleGradient-dashoffset" />
               <circle
-                strokeDashoffset={props.x}
-                strokeDasharray={offset}
                 strokeWidth="3"
                 cx="25"
                 cy="25"
                 r="20"
                 stroke="url(#circleGradient-dashoffset)"
                 fill="none"
-                ref={pathRef}
               />
               <g>
                 <svg width={50} height={50} viewBox="-60 -50 300 300">
@@ -40,21 +57,9 @@ export default function AnimatedLogo() {
                 </svg>
               </g>
             </svg>
-          )}
-        </Spring>
-      ) : (
-        <svg>
-          <circle
-            strokeWidth="3"
-            cx="100"
-            cy="50"
-            r="40"
-            stroke="none"
-            fill="none"
-            ref={pathRef}
-          />
-        </svg>
+          </animated.div>
+        )
       )}
-    </>
+    </div>
   );
 }
