@@ -1,5 +1,5 @@
 // Animation.js
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
 import { GradientPinkBlue as CircleGradient } from "@vx/gradient";
 
