@@ -66,9 +66,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredProjects(true)}
               onMouseLeave={() => setHoveredProjects(false)}
               to="/projects"
-              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1"
             >
-              <span className="font-semibold">Projects</span>
+              <span className="text-md uppercase font-semibold">Projects</span>
 
               <Transition
                 show={hoveredProjects}
@@ -87,9 +87,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredAbout(true)}
               onMouseLeave={() => setHoveredAbout(false)}
               to="/about"
-              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
-              <span className="font-semibold">About</span>
+              <span className="text-md uppercase font-semibold">About</span>
 
               <Transition
                 show={hoveredAbout}
@@ -108,9 +108,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredContact(true)}
               onMouseLeave={() => setHoveredContact(false)}
               to="/contact"
-              className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
             >
-              <span className="font-semibold">Contact</span>
+              <span className="text-md uppercase font-semibold">Contact</span>
 
               <Transition
                 show={hoveredContact}
@@ -138,7 +138,7 @@ export default function Navigation() {
                 const item = mobileNavItems[i];
                 return (
                   <animated.li style={{ opacity }} key={Math.random() * 1000}>
-                    <div className="w-full items-start flex flex-col">
+                    <div className="w-full text-center flex flex-col">
                       {item}
                     </div>
                   </animated.li>
