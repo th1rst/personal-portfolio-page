@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MakeMeAwesome from "../components/Projects.js/MakeMeAwesome";
 import { useSpring, useTrail, animated } from "react-spring";
+import KaufmannsRecipeSite from "../components/Projects.js/KaufmannsRecipeSite";
+import PortfolioPage from "../components/Projects.js/PortfolioPage";
 
 const projects = [
+  <PortfolioPage />,
   <MakeMeAwesome />,
-  <MakeMeAwesome />,
+  <KaufmannsRecipeSite />,
   <MakeMeAwesome />,
   <MakeMeAwesome />,
 ];

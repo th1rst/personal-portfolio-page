@@ -1,42 +1,30 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
-import Popover from "@material-ui/core/Popover";
 import { Transition } from "@tailwindui/react";
-import { makeStyles } from "@material-ui/core/styles";
 
 //Icons
-import { SiTailwindcss } from "react-icons/si";
 import { BiListCheck } from "react-icons/bi";
 import { BsCheckCircle, BsTextCenter } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
-import { FaReact, FaGithub, FaGlobe } from "react-icons/fa";
+import { FaReact, FaGithub, FaGlobe, FaCss3Alt } from "react-icons/fa";
 
 //Pictures
-import login from "../../assets/pictures/MakeMeAwesome/login.png";
-import overview from "../../assets/pictures/MakeMeAwesome/overview.png";
-
-const useStyles = makeStyles((theme) => ({
-  popover: {
-    pointerEvents: "none",
-  },
-  paper: {
-    padding: theme.spacing(1),
-  },
-}));
+import overview from "../../assets/pictures/KaufmannsRecipeSite/overview.png";
+import back from "../../assets/pictures/KaufmannsRecipeSite/back.png";
 
 const features = [
-  "User Authentication + Account",
-  "Settings (Password reset, change Email)",
-  "Customizable 'Quick Activities'",
-  "Customizable Profile + Banner Picture",
-  "Motivational Random Quote via API",
-  "Data Visualization via ApexCharts",
-  "Table overview (All Activities) incl. filtering",
-  "'Live Activities' (Stopwatch, Counter)",
-  "Manually enter activities with Date Picker",
+  "Over 180 real recipes from my grandfather",
+  "Including 237 page Ebook made in Photoshop",
+  "'Real' Website (German Content)",
+  "11 Recipe Categories",
+  "Contentful Database API",
+  "Searchable Recipes",
+  "Logic set up for X amount of recipes (expandable)",
+  "Custom CSS and React-Bootstrap",
+  "Social Media Share funtion",
 ];
 
-export default function MakeMeAwesome() {
+export default function KaufmannsRecipeSite() {
   const [flipped, setFlipped] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -47,7 +35,6 @@ export default function MakeMeAwesome() {
   const [hoveredFeaturesButton, setHoveredFeaturesButton] = useState(false);
 
   //materialUI Popover
-  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -61,7 +48,7 @@ export default function MakeMeAwesome() {
     <div className="mb-16">
       {/* HEADING */}
       <h3 className="mb-2 text-white text-xl text-center tracking-wide font-semibold">
-        MakeMeAwesome
+        Kaufmanns Recipe Site
       </h3>
       <div className="flex flex-col border border-gray-800 rounded-xl">
         <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl mx-auto">
@@ -100,8 +87,8 @@ export default function MakeMeAwesome() {
                 <div>
                   <img
                     className="opacity-50 absolute w-full h-full object-cover rounded-lg"
-                    src={login}
-                    alt="login"
+                    src={back}
+                    alt="backside"
                   />
                   <div className="absolute w-full h-full flex flex-col justify-center">
                     <div className="flex flex-col">
@@ -110,7 +97,7 @@ export default function MakeMeAwesome() {
                           {/* GITHUB */}
                           <a
                             className="flex flex-col items-center "
-                            href="https://github.com/th1rst/learning/tree/master/Projects/make-me-awesome"
+                            href="https://github.com/th1rst/learning/tree/master/Projects/kaufmanns-recipe-site"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -129,7 +116,7 @@ export default function MakeMeAwesome() {
                           {/* LIVE VERSION INCL. POPOVER FOR CREDENTIALS */}
                           <a
                             className="flex flex-col items-center "
-                            href="https://kochannek.com/portfolio/make-me-awesome/"
+                            href="https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -139,39 +126,6 @@ export default function MakeMeAwesome() {
                             </p>
                           </a>
                         </div>
-                        <Popover
-                          id="mouse-over-popover"
-                          className={classes.popover}
-                          classes={{
-                            paper: classes.paper,
-                          }}
-                          open={open}
-                          anchorEl={anchorEl}
-                          anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "left",
-                          }}
-                          transformOrigin={{
-                            vertical: "top",
-                            horizontal: "left",
-                          }}
-                          style={{ marginTop: "10px" }}
-                          onClose={handlePopoverClose}
-                          disableRestoreFocus
-                        >
-                          <div className="flex flex-col">
-                            <div className="flex flex-row">
-                              <p className="text-black font-semibold">Login:</p>
-                              <p className="ml-1 text-blue-500">john@doe.com</p>
-                            </div>
-                            <div className="flex flex-row">
-                              <p className="text-black font-semibold">
-                                Password:
-                              </p>
-                              <p className="ml-1 text-blue-500">testuser123</p>
-                            </div>
-                          </div>
-                        </Popover>
                       </div>
                     </div>
                   </div>
@@ -208,17 +162,11 @@ export default function MakeMeAwesome() {
                     <FaGlobe className="w-12 h-12" />
                     <p className="my-1 font-semibold">View Live Version</p>
                   </a>
-                  <div className="text-center">
-                    <p className="mt-2 text-sm font-semibold">Login:</p>
-                    <p className="text-xs italic">john@doe.com</p>
-                    <p className="mt-2 text-sm font-semibold">Password:</p>
-                    <p className="text-xs italic">testuser123</p>
-                  </div>
                 </div>
               </div>
 
               <p className="mt-4 text-center font-semibold uppercase tracking-wide">
-                A personal activity and productivity tracker.
+                Over 180 real family recipes.
               </p>
               <p className="my-2 text-sm text-center font-semibold uppercase tracking-wide">
                 Technologies used:
@@ -234,38 +182,25 @@ export default function MakeMeAwesome() {
                 </div>
 
                 <div className="my-4 mx-4 flex flex-col items-center">
-                  <SiTailwindcss
+                  <FaCss3Alt
                     className="w-12 h-12"
-                    style={{ color: "#38b2ac" }}
+                    style={{ color: "#258ec8" }}
                   />
                   <div className="flex flex-col items-center text-center">
-                    <p className="mt-1 text-xl">Tailwind CSS</p>
-                    <p className="mt-1 text-xs">Windmill UI</p>
-                    <p className="mt-1 text-xs">Rainbow Components</p>
+                    <p className="mt-1 text-xl">CSS 3</p>
+                    <p className="mt-1 text-xs">Custom CSS</p>
+                    <p className="mt-1 text-xs">React-Bootstrap</p>
                   </div>
                 </div>
 
                 <div className="my-4 mx-4 flex flex-col items-center text-center">
                   <img
                     className="w-12 h-12"
-                    src="https://png2.cleanpng.com/sh/a9d2c3dc4d3936284b440d384d94c2f7/L0KzQYm3VMI3N5RBfZH0aYP2gLBuTfZqepZneeVuLXPvf8brTf1me6Rmf9t3Zz3qf7FujPUubJZ7fd54cHX1g376jBZ1f5J3RadqZUHnSbfrgcQ6PGEARqkCMEm0SYmAUcUzPGg6SKo9NUa6RIK1kP5o/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png"
+                    src="https://avatars1.githubusercontent.com/u/472182?s=280&v=4"
                     alt="tailwind"
                   />
-                  <p className="mt-1 text-xl">Firebase</p>
-                  <p className="mt-1 text-xs">Firebase Auth</p>
-                  <p className="mt-1 text-xs">Firestore</p>
-                </div>
-
-                <div className="my-4 mx-4 flex flex-col items-center text-center">
-                  <img
-                    className="w-16 h-12"
-                    src="https://camo.githubusercontent.com/234f6fe1b4fdef71cd8e1f5fbad043093d023dba/68747470733a2f2f617065786368617274732e636f6d2f6d656469612f72656163742d617065786368617274732e706e67"
-                    alt="apexcharts"
-                  />
-                  <div className="flex flex-col items-center">
-                    <p className="mt-1 text-xl">ApexCharts</p>
-                    <p className="mt-1 text-xs">Custom Sorting Algorithm</p>
-                  </div>
+                  <p className="mt-1 text-xl">Contentful</p>
+                  <p className="mt-1 text-xs">Database API</p>
                 </div>
               </div>
             </div>
@@ -307,27 +242,19 @@ export default function MakeMeAwesome() {
                 </span>
               </div>
               <div className="w-full text-sm font-semibold px-8 md:px-16 text-justify">
-                A while ago, a friend of mine asked me if I could build a
-                "personal improvement" Webapp for him where he could track his
-                activities and see where he spends his time on (productive tasks
-                vs. unproductive tasks) so he could improve himself and his time
-                management. It sounded boring at first, but the more I thought
-                about it, the more I liked the idea because it's more
-                "interactive" than the Sites I've built before... and since I
-                was looking for a new project idea anyways, I thought I'd go for
-                it. <br /> <br />
-                Realistically, the App won't have many users, so learning to
-                build a complete Backend for it would be too much - instead, I
-                used Google Firebase Auth and Firestore as a Backend, which, in
-                retrospect, were more than enough new technologies to learn at
-                once. For Firebase auth, I stuck to a Tutorial by Rwieruch which
-                was super helpful and teached me lots of things. While this
-                project took me significantly longer than anticipated (because
-                after Covid Lockdowns I started working full time again), it was
-                SO much fun and although this wasn't my first React project, it
-                finally "clicked" to the point where I could work my way through
-                the different Documentations to finish this project and had to
-                google a lot less.
+                Our family loves to cook - and since I use cooking websites
+                frequently, and also use my grandfather's recipes frequently, I
+                thought I'd make the best of both worlds and combine the two.{" "}
+                <br />
+                Kaufmanns Recipe Site (or "Kaufmanns-Rezeptsammlung" in German)
+                is a real Website with my grandfather's collection of ~180
+                phenomenal recipes collected over the last 50 years - some of
+                which were even made by my great-great-grandmother. The recipes
+                were once used in a Print-On-Demand book that was sold on Amazon
+                KDP and a 237-page PDF version in print-quality of said book is
+                available to download for free (make sure to use Dual Page
+                Layout when reading). Since it's a "real" Website including
+                real-world content, everything is written in German.
               </div>
             </div>
 

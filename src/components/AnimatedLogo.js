@@ -17,19 +17,28 @@ export default function AnimatedLogo() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      <svg width={50} height={50}>
+        <CircleGradient id="circleGradient-dashoffset" />
+        <circle
+          strokeWidth="3"
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="url(#circleGradient-dashoffset)"
+          fill="none"
+        />
+      </svg>
       {transitions.map(({ item, key, props }) =>
         item ? (
           <animated.div style={props}>
             <svg
-              width={35}
-              height={35}
-              fill="blue"
+              width={25}
+              height={25}
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <CircleGradient id="gradient" />
               <polygon
-                fill="url(#gradient)"
+                fill="#e8e8e8"
                 points="12 0 7 4.58 7 3 3 3 3 8.25 0 11 3 11 3 22 10 22 10 16 14 16 14 22 21 22 21 11 24 11 12 0"
               />
             </svg>
