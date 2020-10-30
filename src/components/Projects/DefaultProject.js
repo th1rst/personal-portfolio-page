@@ -1,30 +1,25 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
+import Popover from "@material-ui/core/Popover";
 import { Transition } from "@tailwindui/react";
+import { makeStyles } from "@material-ui/core/styles";
 
 //Icons
 import { BiListCheck } from "react-icons/bi";
 import { BsCheckCircle, BsTextCenter } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
-import { FaReact, FaGithub, FaGlobe, FaCss3Alt } from "react-icons/fa";
+import { FaGithub, FaGlobe } from "react-icons/fa";
 
-//Pictures
-import overview from "../../assets/pictures/KaufmannsRecipeSite/overview.png";
-import back from "../../assets/pictures/KaufmannsRecipeSite/back.png";
+const useStyles = makeStyles((theme) => ({
+  popover: {
+    pointerEvents: "none",
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
+}));
 
-const features = [
-  "Over 180 real recipes from my grandfather",
-  "Including 237 page Ebook made in Photoshop",
-  "'Real' Website (German Content)",
-  "11 Recipe Categories",
-  "Contentful Database API",
-  "Searchable Recipes",
-  "Logic set up for X amount of recipes (expandable)",
-  "Custom CSS and React-Bootstrap",
-  "Social Media Share funtion",
-];
-
-export default function KaufmannsRecipeSite() {
+const DefaultProject = (props) => {
   const [flipped, setFlipped] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -35,6 +30,7 @@ export default function KaufmannsRecipeSite() {
   const [hoveredFeaturesButton, setHoveredFeaturesButton] = useState(false);
 
   //materialUI Popover
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -44,11 +40,26 @@ export default function KaufmannsRecipeSite() {
   };
   const open = Boolean(anchorEl);
 
+  const {
+    name,
+    imageFront,
+    imageBack,
+    githubLink,
+    liveVersionLink,
+    hasLoginCredentials,
+    userLogin,
+    passwordLogin,
+    projectShortDescription,
+    aboutProjectText,
+    features,
+    techStack,
+  } = props;
+
   return (
     <div className="mb-16">
       {/* HEADING */}
       <h3 className="mb-2 text-white text-xl text-center tracking-wide font-semibold">
-        Kaufmanns Recipe Site
+        {name}
       </h3>
       <div className="flex flex-col border border-gray-800 rounded-xl">
         <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl mx-auto">
@@ -70,7 +81,7 @@ export default function KaufmannsRecipeSite() {
                 {/* IMAGE FRONT */}
                 <img
                   className="w-full h-full object-cover rounded-lg"
-                  src={overview}
+                  src={imageFront}
                   alt="overview"
                 />
               </animated.div>
@@ -87,8 +98,8 @@ export default function KaufmannsRecipeSite() {
                 <div>
                   <img
                     className="opacity-50 absolute w-full h-full object-cover rounded-lg"
-                    src={back}
-                    alt="backside"
+                    src={imageBack}
+                    alt="login"
                   />
                   <div className="absolute w-full h-full flex flex-col justify-center">
                     <div className="flex flex-col">
@@ -97,7 +108,7 @@ export default function KaufmannsRecipeSite() {
                           {/* GITHUB */}
                           <a
                             className="flex flex-col items-center "
-                            href="https://github.com/th1rst/learning/tree/master/Projects/kaufmanns-recipe-site"
+                            href={githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -116,7 +127,7 @@ export default function KaufmannsRecipeSite() {
                           {/* LIVE VERSION INCL. POPOVER FOR CREDENTIALS */}
                           <a
                             className="flex flex-col items-center "
-                            href="https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/"
+                            href={liveVersionLink}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -126,6 +137,47 @@ export default function KaufmannsRecipeSite() {
                             </p>
                           </a>
                         </div>
+                        {hasLoginCredentials ? (
+                          <Popover
+                            id="mouse-over-popover"
+                            className={classes.popover}
+                            classes={{
+                              paper: classes.paper,
+                            }}
+                            open={open}
+                            anchorEl={anchorEl}
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "left",
+                            }}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "left",
+                            }}
+                            style={{ marginTop: "10px" }}
+                            onClose={handlePopoverClose}
+                            disableRestoreFocus
+                          >
+                            <div className="flex flex-col">
+                              <div className="flex flex-row">
+                                <p className="text-black font-semibold">
+                                  Login:
+                                </p>
+                                <p className="ml-1 text-blue-500">
+                                  {userLogin}
+                                </p>
+                              </div>
+                              <div className="flex flex-row">
+                                <p className="text-black font-semibold">
+                                  Password:
+                                </p>
+                                <p className="ml-1 text-blue-500">
+                                  {passwordLogin}
+                                </p>
+                              </div>
+                            </div>
+                          </Popover>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -162,46 +214,39 @@ export default function KaufmannsRecipeSite() {
                     <FaGlobe className="w-12 h-12" />
                     <p className="my-1 font-semibold">View Live Version</p>
                   </a>
+                  {hasLoginCredentials ? (
+                    <div className="text-center">
+                      <p className="mt-2 text-sm font-semibold">Login:</p>
+                      <p className="text-xs italic">{userLogin}</p>
+                      <p className="mt-2 text-sm font-semibold">Password:</p>
+                      <p className="text-xs italic">{passwordLogin}</p>
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
-              <p className="mt-4 text-center font-semibold uppercase tracking-wide">
-                Over 180 real family recipes.
+              <p className="mt-4 text-xl text-center font-semibold uppercase tracking-wide text-blue-400">
+                {projectShortDescription}
               </p>
-              <p className="my-2 text-sm text-center font-semibold uppercase tracking-wide">
+              <p className="mt-8 mb-2 text-sm text-center font-semibold uppercase tracking-wide">
                 Technologies used:
               </p>
               <div className="flex flex-row flex-wrap justify-evenly font-semibold">
-                <div className="my-4 mx-4 flex flex-col items-center text-center">
-                  <FaReact className="w-12 h-12" style={{ color: "#00b7ff" }} />
-                  <div className="flex flex-col text-center">
-                    <p className="mt-1 text-xl">React 16</p>
-                    <p className="mt-1 text-xs">React Router</p>
-                    <p className="mt-1 text-xs">Context API</p>
-                  </div>
-                </div>
-
-                <div className="my-4 mx-4 flex flex-col items-center">
-                  <FaCss3Alt
-                    className="w-12 h-12"
-                    style={{ color: "#258ec8" }}
-                  />
-                  <div className="flex flex-col items-center text-center">
-                    <p className="mt-1 text-xl">CSS 3</p>
-                    <p className="mt-1 text-xs">Custom CSS</p>
-                    <p className="mt-1 text-xs">React-Bootstrap</p>
-                  </div>
-                </div>
-
-                <div className="my-4 mx-4 flex flex-col items-center text-center">
-                  <img
-                    className="w-12 h-12"
-                    src="https://avatars1.githubusercontent.com/u/472182?s=280&v=4"
-                    alt="tailwind"
-                  />
-                  <p className="mt-1 text-xl">Contentful</p>
-                  <p className="mt-1 text-xs">Database API</p>
-                </div>
+                {techStack
+                  ? techStack.map((item) => (
+                      <div className="my-4 mx-4 flex flex-col items-center text-center">
+                        {item.logo}
+                        <div className="flex flex-col text-center">
+                          <p className="mt-1 text-xl">{item.name}</p>
+                          {item.subtexts
+                            ? item.subtexts.map((subtext) => (
+                                <p className="mt-1 text-xs">{subtext}</p>
+                              ))
+                            : null}
+                        </div>
+                      </div>
+                    ))
+                  : null}
               </div>
             </div>
           </div>
@@ -215,7 +260,7 @@ export default function KaufmannsRecipeSite() {
             onClick={() => setMoreInfoVisible(!moreInfoVisible)}
           >
             <AiOutlineDown className="inline-flex h-5 w-5 mr-1" />
-            <span className="text-md font-semibold uppercase my-auto">
+            <span className="text-lg font-semibold uppercase my-auto">
               More
             </span>
             <Transition
@@ -237,36 +282,24 @@ export default function KaufmannsRecipeSite() {
             <div className="mt-2 w-full">
               <div className="flex flex-row justify-center mx-auto my-4">
                 <BsTextCenter className="inline-flex h-6 w-6 mr-1" />
-                <span className="text-md text-blue-500 font-semibold uppercase my-auto">
+                <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
                   About
                 </span>
               </div>
-              <div className="w-full text-sm font-semibold px-8 md:px-16 text-justify">
-                Our family loves to cook - and since I use cooking websites
-                frequently, and also use my grandfather's recipes frequently, I
-                thought I'd make the best of both worlds and combine the two.{" "}
-                <br />
-                Kaufmanns Recipe Site (or "Kaufmanns-Rezeptsammlung" in German)
-                is a real Website with my grandfather's collection of ~180
-                phenomenal recipes collected over the last 50 years - some of
-                which were even made by my great-great-grandmother. The recipes
-                were once used in a Print-On-Demand book that was sold on Amazon
-                KDP and a 237-page PDF version in print-quality of said book is
-                available to download for free (make sure to use Dual Page
-                Layout when reading). Since it's a "real" Website including
-                real-world content, everything is written in German.
+              <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">
+                {aboutProjectText}
               </div>
             </div>
 
             <div className="mt-12 flex flex-row justify-center w-full">
               <BiListCheck className="inline-flex h-8 w-8 mr-1" />
-              <span className="text-md text-blue-500 font-semibold uppercase my-auto">
+              <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
                 Features
               </span>
             </div>
             <ul className="w-full pb-4 grid grid-cols-1 lg:grid-cols-3 text-center text-sm font-semibold">
               {features.map((item) => (
-                <li className="m-4 mx-auto text-md">
+                <li className="m-4 mx-auto text-md" key={item}>
                   <BsCheckCircle className="inline-flex mx-2 my-auto" />
                   {item}
                 </li>
@@ -277,4 +310,6 @@ export default function KaufmannsRecipeSite() {
       </div>
     </div>
   );
-}
+};
+
+export default DefaultProject;

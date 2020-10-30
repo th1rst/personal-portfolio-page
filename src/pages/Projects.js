@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MakeMeAwesome from "../components/Projects.js/MakeMeAwesome";
 import { useSpring, useTrail, animated } from "react-spring";
-import KaufmannsRecipeSite from "../components/Projects.js/KaufmannsRecipeSite";
-import PortfolioPage from "../components/Projects.js/PortfolioPage";
+import projectList from "../assets/data/ProjectList";
 
-const projects = [
-  <PortfolioPage />,
-  <MakeMeAwesome />,
-  <KaufmannsRecipeSite />,
-  <MakeMeAwesome />,
-  <MakeMeAwesome />,
-];
+const projects = projectList;
 
 export default function Projects() {
   const [hidden, setHidden] = useState(true);
@@ -35,7 +27,7 @@ export default function Projects() {
       </h1>
 
       {/* PROJECTS CONTAINER */}
-      <div className="m-4 p-4 flex flex-col">
+      <div className="m-1 p-1 md:p-4 md:m-4 flex flex-col">
         {!hidden ? (
           <animated.div style={{ opacity }}>
             <ul>

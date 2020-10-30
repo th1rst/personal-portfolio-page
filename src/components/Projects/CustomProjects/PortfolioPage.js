@@ -11,26 +11,20 @@ import { AiOutlineDown } from "react-icons/ai";
 import { FaReact, FaGithub } from "react-icons/fa";
 
 const features = [
-  "User Authentication + Account",
-  "Settings (Password reset, change Email)",
-  "Customizable 'Quick Activities'",
-  "Customizable Profile + Banner Picture",
-  "Motivational Random Quote via API",
-  "Data Visualization via ApexCharts",
-  "Table overview (All Activities) incl. filtering",
-  "'Live Activities' (Stopwatch, Counter)",
-  "Manually enter activities with Date Picker",
+  "Hooks",
+  "Smooth Animations with React-Spring",
+  "Serverless Contact Form via Formspree",
 ];
 
 export default function PortfolioPage() {
   const [moreInfoVisible, setMoreInfoVisible] = useState(false);
   const [hoveredFeaturesButton, setHoveredFeaturesButton] = useState(false);
 
-  const [moveLeft, setMoveLeft] = useState(false);
+  const [fade, setfade] = useState(false);
 
   const { opacity } = useSpring({
     config: { duration: 500 },
-    opacity: moveLeft ? 1 : 0,
+    opacity: fade ? 1 : 0,
   });
 
   return (
@@ -44,8 +38,8 @@ export default function PortfolioPage() {
           <div className="w-full md:w-1/2 h-64 m-2 my-auto">
             <div
               className="relative h-full w-full max-w-3xl rounded-lg border border-gray-900"
-              onMouseEnter={() => setMoveLeft(true)}
-              onMouseLeave={() => setMoveLeft(false)}
+              onMouseEnter={() => setfade(true)}
+              onMouseLeave={() => setfade(false)}
             >
               <svg className="mx-auto" width={300} height={250}>
                 <CircleGradient id="gradient" />
@@ -61,7 +55,7 @@ export default function PortfolioPage() {
               <animated.div
                 style={{
                   config: { duration: 500 },
-                  opacity: moveLeft ? 0 : 1,
+                  opacity: fade ? 0 : 1,
                 }}
               >
                 <div className="absolute top-0 w-full h-full">
@@ -78,7 +72,7 @@ export default function PortfolioPage() {
                 </div>
               </animated.div>
 
-              {moveLeft ? (
+              {fade ? (
                 <animated.div style={{ opacity }}>
                   <div className="absolute top-0 w-full h-full">
                     <svg className="mx-auto" width={300} height={250}>
@@ -159,7 +153,9 @@ export default function PortfolioPage() {
                     alt="react-spring"
                   />
                   <p className="mt-1 text-xl">React-Spring</p>
-                  <p className="mt-1 text-xs">Custom Animations</p>
+                  <p className="mt-1 text-xs">useSpring</p>
+                  <p className="mt-1 text-xs">useTrail</p>
+                  <p className="mt-1 text-xs">transitions</p>
                 </div>
               </div>
             </div>
@@ -174,7 +170,7 @@ export default function PortfolioPage() {
             onClick={() => setMoreInfoVisible(!moreInfoVisible)}
           >
             <AiOutlineDown className="inline-flex h-5 w-5 mr-1" />
-            <span className="text-md font-semibold uppercase my-auto">
+            <span className="text-lg font-semibold uppercase my-auto">
               More
             </span>
             <Transition
@@ -196,11 +192,11 @@ export default function PortfolioPage() {
             <div className="mt-2 w-full">
               <div className="flex flex-row justify-center mx-auto my-4">
                 <BsTextCenter className="inline-flex h-6 w-6 mr-1" />
-                <span className="text-md text-blue-500 font-semibold uppercase my-auto">
+                <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
                   About
                 </span>
               </div>
-              <div className="w-full text-sm font-semibold px-8 md:px-16 text-justify">
+              <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">
                 After all, I needed a Website to showcase my skills and document
                 my projects.
                 <br />
@@ -209,28 +205,23 @@ export default function PortfolioPage() {
                 made sure to make it as visually appealing as I could - although
                 I am not a design-savvy person at all. After a certain amount of
                 research, I stumbled upon React-Spring, which is amazing albeit
-                rather complicated. Ever since my last project ("Make Me
-                Awesome"), TailwindCSS has kind of grown on me so I used it
-                again. What I like about Tailwind is that it doesn't come with
-                pre-opinionated components like Bootstrap so there's more room
-                for creative freedom. <br /> <br />
-                I was on the fence about making a general "Project" Component
-                that accepts several props (so I don't violate the "DRY"
-                principle), but after I thought about it, I thought that it
-                would actually make more sense to copy + paste each project
-                since there would've been so many props to pass (Arrays, Bools,
-                Objects, Links, Images) that it would make the Code
-                significantly less readable.
-                <br /> <br />
+                rather complicated - so you'll find various animations
+                throughout the page like springs, trails and transitions. <br />{" "}
+                Ever since my last project ("Make Me Awesome"), TailwindCSS has
+                kind of grown on me so I used it again. What I like about
+                Tailwind is that it doesn't come with pre-opinionated components
+                like Bootstrap so there's more room for creative freedom. <br />{" "}
+                <br />
                 The entire page is open-sourced on Github and free for everyone
-                to use. If there are any suggestions, just open a Pull Request
+                to use.<br />
+                If there are any suggestions, just open a Pull Request
                 or contact me via my Contact Form.
               </div>
             </div>
 
             <div className="mt-12 flex flex-row justify-center w-full">
               <BiListCheck className="inline-flex h-8 w-8 mr-1" />
-              <span className="text-md text-blue-500 font-semibold uppercase my-auto">
+              <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
                 Features
               </span>
             </div>
