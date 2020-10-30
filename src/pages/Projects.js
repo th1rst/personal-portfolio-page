@@ -19,7 +19,7 @@ export default function Projects() {
 
   return (
     <div className="w-full h-full bg-black">
-      <h1 className="pt-4 text-3xl font-semibold uppercase text-white text-center tracking-wider">
+      <h1 className="pt-4 text-3xl text-blue-400 font-semibold uppercase text-white text-center tracking-wider">
         Projects
       </h1>
       <h1 className="text-xs uppercase text-white text-center">

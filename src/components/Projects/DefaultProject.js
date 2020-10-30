@@ -58,7 +58,7 @@ const DefaultProject = (props) => {
   return (
     <div className="mb-16">
       {/* HEADING */}
-      <h3 className="mb-2 text-white text-xl text-center tracking-wide font-semibold">
+      <h3 className="mb-2 text-white text-2xl text-center tracking-wide font-semibold">
         {name}
       </h3>
       <div className="flex flex-col border border-gray-800 rounded-xl">
@@ -194,7 +194,7 @@ const DefaultProject = (props) => {
                   {/* GITHUB */}
                   <a
                     className="flex flex-col items-center "
-                    href="https://github.com/th1rst/learning/tree/master/Projects/make-me-awesome"
+                    href={githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -207,7 +207,7 @@ const DefaultProject = (props) => {
                   {/* LIVE VERSION */}
                   <a
                     className="flex flex-col items-center cursor-pointer"
-                    href="https://kochannek.com/portfolio/make-me-awesome/"
+                    href={liveVersionLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

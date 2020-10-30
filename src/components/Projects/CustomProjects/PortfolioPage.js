@@ -30,7 +30,7 @@ export default function PortfolioPage() {
   return (
     <div className="mb-16">
       {/* HEADING */}
-      <h3 className="mb-2 text-white text-xl text-center tracking-wide font-semibold">
+      <h3 className="mb-2 text-white text-2xl text-center tracking-wide font-semibold">
         Personal Portfolio Page
       </h3>
       <div className="flex flex-col border border-gray-800 rounded-xl">
@@ -197,24 +197,22 @@ export default function PortfolioPage() {
                 </span>
               </div>
               <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">
-                After all, I needed a Website to showcase my skills and document
-                my projects.
-                <br />
                 While there are no fancy technical things to implement (like
                 User Authentication, API calls or Database implementation), I
                 made sure to make it as visually appealing as I could - although
                 I am not a design-savvy person at all. After a certain amount of
                 research, I stumbled upon React-Spring, which is amazing albeit
                 rather complicated - so you'll find various animations
-                throughout the page like springs, trails and transitions. <br />{" "}
+                throughout the page like springs, trails and transitions.
+                <br />
                 Ever since my last project ("Make Me Awesome"), TailwindCSS has
                 kind of grown on me so I used it again. What I like about
                 Tailwind is that it doesn't come with pre-opinionated components
-                like Bootstrap so there's more room for creative freedom. <br />{" "}
+                like Bootstrap so there's more room for creative freedom.
+                <br />
                 <br />
                 The entire page is open-sourced on Github and free for everyone
-                to use.<br />
-                If there are any suggestions, just open a Pull Request
+                to use. If there are any suggestions, just open a Pull Request
                 or contact me via my Contact Form.
               </div>
             </div>
