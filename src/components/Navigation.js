@@ -53,7 +53,7 @@ export default function Navigation() {
         </Link>
         <div className="ml-1 flex flex-col items-start justify-center">
           <h1 className="text-white text-xl uppercase font-bold tracking-tighter leading-none">
-            Marco Kochannek
+            Marco<div className="inline-flex mx-1 w-1 h-1 bg-red-500" />Kochannek
           </h1>
           <h1 className="text-gray-400 text-md tracking-wider leading-none">
             Frontend Web Developer

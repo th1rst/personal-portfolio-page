@@ -2,6 +2,7 @@ import React from "react";
 import { ReCaptcha, Input, Textarea, Button } from "react-rainbow-components";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import SuccessModal from "./SuccessModal";
 
 const formID = process.env.REACT_APP_FORM_ID;
 
@@ -18,6 +19,7 @@ class ContactForm extends React.Component {
       messageError: undefined,
       recaptcha: undefined,
       recaptchaError: undefined,
+      showModal: false,
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -77,6 +79,15 @@ class ContactForm extends React.Component {
       .then(function (response) {
         console.log(response);
       })
+      .then(() => this.setState({ showModal: true }))
+      .then(() =>
+        setTimeout(
+          function () {
+            this.setState({ showModal: false });
+          }.bind(this),
+          5000
+        )
+      )
       .catch(function (error) {
         console.error(error);
       });
@@ -121,58 +132,66 @@ class ContactForm extends React.Component {
       message,
       messageError,
       recaptchaError,
+      showModal,
     } = this.state;
 
     const RECAPTCHA_APIKEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
 
     return (
-      <div className="flex h-screen">
-        <div className="w-full md:w-2/3 mx-auto">
-          <form onSubmit={this.handleSubmit}>
-            <h1 className="mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
-              Contact Me
-            </h1>
-            <div className="flex flex-row justify-center mx-16 mb-8">
-              <Input
-                className="mr-4 w-1/2"
-                label="Name"
-                placeholder="Enter your name"
-                value={userName}
-                error={userNameError}
-                onChange={this.handleUserNameChange}
-                icon={<FaUser className="text-blue-400" />}
+      <>
+        {showModal ? <SuccessModal /> : null}
+        <div className="flex h-screen">
+          <div className="w-full md:w-2/3 mx-auto">
+            <form onSubmit={this.handleSubmit}>
+              <h1 className="mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
+                Contact Me
+              </h1>
+              <div className="flex flex-row justify-center mx-16 mb-8">
+                <Input
+                  className="mr-4 w-1/2"
+                  label="Name"
+                  placeholder="Enter your name"
+                  value={userName}
+                  error={userNameError}
+                  onChange={this.handleUserNameChange}
+                  icon={<FaUser className="text-blue-400" />}
+                />
+                <Input
+                  className="ml-4 w-1/2"
+                  label="Email"
+                  placeholder="Enter your email"
+                  value={email}
+                  error={emailError}
+                  onChange={this.handleEmailChange}
+                  icon={<MdEmail className="text-blue-400" />}
+                />
+              </div>
+              <Textarea
+                className="mx-16"
+                label="Message"
+                placeholder="Enter a message"
+                value={message}
+                error={messageError}
+                onChange={this.handleMessageChange}
               />
-              <Input
-                className="ml-4 w-1/2"
-                label="Email"
-                placeholder="Enter your email"
-                value={email}
-                error={emailError}
-                onChange={this.handleEmailChange}
-                icon={<MdEmail className="text-blue-400" />}
-              />
-            </div>
-            <Textarea
-              className="mx-16"
-              label="Message"
-              placeholder="Enter a message"
-              value={message}
-              error={messageError}
-              onChange={this.handleMessageChange}
-            />
-            <div className="mx-16 mt-8 flex flex-col items-center">
-              <ReCaptcha
-                siteKey={RECAPTCHA_APIKEY}
-                ref={this.reCaptchaRef}
-                error={recaptchaError}
-                onChange={this.handleReCaptchaSuccess}
-              />
-             <Button className="h-10 mt-8" label="Send" variant="brand" type="submit" />
-            </div>
-           
-          </form>
+              <div className="mx-16 mt-8 flex flex-col items-center">
+                <ReCaptcha
+                  siteKey={RECAPTCHA_APIKEY}
+                  ref={this.reCaptchaRef}
+                  error={recaptchaError}
+                  onChange={this.handleReCaptchaSuccess}
+                />
+                <Button
+                  className="h-10 mt-8"
+                  label="Send"
+                  variant="brand"
+                  type="submit"
+                />
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -18,7 +18,7 @@ export default function Projects() {
   }, [setHidden]);
 
   return (
-    <div className="w-full h-full bg-black">
+    <div className="w-full min-h-screen bg-black">
       <h1 className="pt-4 text-3xl text-blue-400 font-semibold uppercase text-white text-center tracking-wider">
         Projects
       </h1>
