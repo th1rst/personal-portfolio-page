@@ -22,7 +22,7 @@ export default function Projects() {
       <h1 className="pt-4 text-3xl text-blue-400 font-semibold uppercase text-white text-center tracking-wider">
         Projects
       </h1>
-      <h1 className="text-xs uppercase text-white text-center">
+      <h1 className="text-xs mb-12 uppercase text-white text-center">
         (newest to oldest)
       </h1>
 

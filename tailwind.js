@@ -9,6 +9,12 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend: {
+      fontFamily: {
+        sugiyama: ["Dr Sugiyama", "serif"],
+        dancing: ["Dancing Script", "serif"],
+      }
+    },
     screens: {
       sm: '640px',
       md: '768px',

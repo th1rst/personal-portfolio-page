@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./assets/main.css";
+import 'typeface-dr-sugiyama';
+import 'typeface-dancing-script';
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

@@ -7,8 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 //Icons
 import { BiListCheck } from "react-icons/bi";
 import { BsCheckCircle, BsTextCenter } from "react-icons/bs";
-import { AiOutlineDown } from "react-icons/ai";
-import { FaGithub, FaGlobe } from "react-icons/fa";
+import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
+import { FaGithub, FaGlobe, FaCode } from "react-icons/fa";
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -58,9 +58,12 @@ const DefaultProject = (props) => {
   return (
     <div className="mb-16">
       {/* HEADING */}
-      <h3 className="mb-2 text-white text-2xl text-center tracking-wide font-semibold">
-        {name}
-      </h3>
+      <div className="mb-1 flex flex-row justify-center items-center">
+        <FaCode size={40} className="text-blue-400" />
+        <h3 className="ml-4 text-white text-2xl tracking-wide font-semibold">
+          {name}
+        </h3>
+      </div>
       <div className="flex flex-col border border-gray-800 rounded-xl">
         <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl mx-auto">
           <div className="w-full md:w-1/2 h-64 m-2 my-auto">
@@ -259,10 +262,22 @@ const DefaultProject = (props) => {
             onMouseLeave={() => setHoveredFeaturesButton(false)}
             onClick={() => setMoreInfoVisible(!moreInfoVisible)}
           >
-            <AiOutlineDown className="inline-flex h-5 w-5 mr-1" />
-            <span className="text-lg font-semibold uppercase my-auto">
-              More
-            </span>
+            {!moreInfoVisible ? (
+              <div>
+                <AiOutlineDown className="inline-flex h-6 w-6 mr-1 pb-1" />
+                <span className="text-lg mr-1 font-semibold uppercase my-auto">
+                  More
+                </span>
+              </div>
+            ) : (
+              <div>
+                <AiOutlineUp className="inline-flex h-6 w-6 mr-1 pb-1" />
+                <span className="text-lg mr-1 font-semibold uppercase my-auto">
+                  Less
+                </span>
+              </div>
+            )}
+
             <Transition
               show={hoveredFeaturesButton}
               enter="transition-all duration-200"

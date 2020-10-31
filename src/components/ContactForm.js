@@ -123,12 +123,13 @@ class ContactForm extends React.Component {
       recaptchaError,
     } = this.state;
 
-    const LIBRARY_RECAPTCHA_APIKEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+    const RECAPTCHA_APIKEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
     return (
       <div className="flex h-screen">
-        <div className="w-2/3 mt-20 mx-auto">
+        <div className="w-full md:w-2/3 mx-auto">
           <form onSubmit={this.handleSubmit}>
-            <h1 className="my-8 text-white text-center text-3xl uppercase font-semibold">
+            <h1 className="mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
               Contact Me
             </h1>
             <div className="flex flex-row justify-center mx-16 mb-8">
@@ -159,18 +160,16 @@ class ContactForm extends React.Component {
               error={messageError}
               onChange={this.handleMessageChange}
             />
-            <div>
+            <div className="mx-16 mt-8 flex flex-col items-center">
               <ReCaptcha
-                className="my-8 mx-auto"
-                siteKey={LIBRARY_RECAPTCHA_APIKEY}
+                siteKey={RECAPTCHA_APIKEY}
                 ref={this.reCaptchaRef}
                 error={recaptchaError}
                 onChange={this.handleReCaptchaSuccess}
               />
+             <Button className="h-10 mt-8" label="Send" variant="brand" type="submit" />
             </div>
-            <div className="flex justify-center">
-              <Button label="Send" variant="brand" type="submit" />
-            </div>
+           
           </form>
         </div>
       </div>

@@ -51,6 +51,15 @@ export default function Navigation() {
         <Link to="/" className="ml-2 inline-flex items-center">
           <AnimatedLogo />
         </Link>
+        <div className="ml-1 flex flex-col items-start justify-center">
+          <h1 className="text-white text-xl uppercase font-bold tracking-tighter leading-none">
+            Marco Kochannek
+          </h1>
+          <h1 className="text-gray-400 text-md tracking-wider leading-none">
+            Frontend Web Developer
+          </h1>
+        </div>
+
         <button
           className="text-white inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler"
           onClick={() => setHidden(!hidden)}
@@ -100,7 +109,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
               </Transition>
             </Link>
 
