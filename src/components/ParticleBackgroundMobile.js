@@ -82,7 +82,7 @@ export default function ParticleBackground() {
               consent: false,
               distance: 30,
               enable: true,
-              opacity: 0.9,
+              opacity: 2,
               width: 1
             },
             move: {
@@ -117,7 +117,7 @@ export default function ParticleBackground() {
                 sync: false
               },
               random: false,
-              value: 0.9
+              value: 5
             },
             size: {
               animation: {
