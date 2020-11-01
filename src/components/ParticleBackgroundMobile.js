@@ -15,7 +15,7 @@ export default function ParticleBackground() {
             detectsOn: "canvas",
             events: {
               onClick: {
-                enable: true,
+                enable: false,
                 mode: "push"
               },
               onDiv: {
@@ -24,7 +24,7 @@ export default function ParticleBackground() {
                 mode: "repulse"
               },
               onHover: {
-                enable: true,
+                enable: false,
                 mode: "bubble",
                 parallax: {
                   enable: false,
@@ -45,7 +45,7 @@ export default function ParticleBackground() {
               connect: {
                 distance: 80,
                 lineLinked: {
-                  opacity: 0.5
+                  opacity: 0.7
                 },
                 radius: 60
               },
@@ -80,9 +80,9 @@ export default function ParticleBackground() {
               blink: false,
               color: "random",
               consent: false,
-              distance: 50,
+              distance: 30,
               enable: true,
-              opacity: 0.8,
+              opacity: 0.9,
               width: 1
             },
             move: {
@@ -107,23 +107,23 @@ export default function ParticleBackground() {
                 area: 2000
               },
               limit: 0,
-              value: 500
+              value: 100
             },
             opacity: {
               animation: {
                 enable: true,
-                minimumValue: 0.3,
-                speed: 2,
+                minimumValue: 0.5,
+                speed: 1,
                 sync: false
               },
               random: false,
-              value: 0.8
+              value: 0.9
             },
             size: {
               animation: {
                 enable: false,
                 minimumValue: 0.1,
-                speed: 40,
+                speed: 20,
                 sync: false
               },
               random: true,
@@ -138,14 +138,14 @@ export default function ParticleBackground() {
             },
             enable: true,
             move: {
-              radius: 10
+              radius: 3
             },
             position: {
               x: 50,
-              y: 40
+              y: 30
             },
             inlineArrangement: "equidistant",
-            scale: 10,
+            scale: 4,
             type: "inline",
             url: codeSVG
           },

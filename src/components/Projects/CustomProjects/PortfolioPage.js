@@ -10,6 +10,9 @@ import { BsCheckCircle, BsTextCenter } from "react-icons/bs";
 import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
 import { FaReact, FaGithub, FaCode } from "react-icons/fa";
 
+//pictures
+import tsParticles from "../../../assets/pictures/tsParticles.png";
+
 const features = [
   "Hooks",
   "Smooth Animations with React-Spring",
@@ -159,6 +162,16 @@ export default function PortfolioPage() {
                   <p className="mt-1 text-xs">useSpring</p>
                   <p className="mt-1 text-xs">useTrail</p>
                   <p className="mt-1 text-xs">transitions</p>
+                </div>
+
+                <div className="my-4 mx-4 flex flex-col items-center text-center">
+                  <img
+                    className="w-12 h-12"
+                    src={tsParticles}
+                    alt="react-spring"
+                  />
+                  <p className="mt-1 text-xl">tsParticles</p>
+                  <p className="mt-1 text-xs">custom SVG Polygon Mask</p>
                 </div>
               </div>
             </div>
