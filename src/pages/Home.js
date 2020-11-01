@@ -5,6 +5,7 @@ import { useSpring, animated } from "react-spring";
 import ParticleBackground from "../components/ParticleBackground";
 import ParticleBackgroundMobile from "../components/ParticleBackgroundMobile";
 import useWindowDimensions from "../components/hooks/getWindowDimensions";
+import { Text } from "../components/Multilanguage/Text";
 
 export default function Home() {
   const { opacity } = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -19,7 +20,9 @@ export default function Home() {
           <div className="px-8 md:px-0 mt-32 md:mt-64 my-auto mx-auto text-white flex flex-col pointer-events-none">
             <div className="self-center">
               <p className="font-semibold text-5xl leading-none">Hi, </p>
-              <p className="font-dancing text-6xl"> I'm Marco.</p>
+              <p className="font-dancing text-6xl">
+                <Text tid="homeName" />
+              </p>
             </div>
 
             <div className="mt-2 self-center">
@@ -27,20 +30,21 @@ export default function Home() {
                 Frontend Web Developer
               </p>
               <p className="text-lg font-semibold text-gray-600 text-justify">
-                based in Hessen, Germany.
+                <Text tid="homeFrom" />
               </p>
             </div>
 
             <div className="mt-8 px-4 text-lg font-semibold tracking-wider text-blue-400 text-center">
-              A passionate nerd who creates user-centric
+              <Text tid="homeAbout1" />
               <br />
-              and accessible digital experiences.
-              <br />I also love React. And dogs.
+              <Text tid="homeAbout2" />
+              <br />
+              <Text tid="homeAbout3" />
             </div>
             <Link to="/projects">
               <button className="mt-20 mx-auto p-4 h-16 w-64 rounded-lg border-2 border-white flex flex-row items-center justify-center pointer-events-auto cursor-pointer hover:bg-gray-900">
                 <p className="text-sm text-center font-semibold uppercase tracking-tight">
-                  Take a look at my work
+                  <Text tid="homeButtonText" />
                 </p>
                 <FaLongArrowAltRight size={24} className="ml-2 text-white" />
               </button>

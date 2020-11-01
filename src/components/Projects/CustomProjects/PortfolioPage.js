@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@tailwindui/react";
 import { useSpring, animated } from "react-spring";
 import { GradientPinkBlue as CircleGradient } from "@vx/gradient";
+import { Text } from "../../Multilanguage/Text";
 
 //Icons
 import { SiTailwindcss } from "react-icons/si";
@@ -14,9 +15,11 @@ import { FaReact, FaGithub, FaCode } from "react-icons/fa";
 import tsParticles from "../../../assets/pictures/tsParticles.png";
 
 const features = [
-  "Hooks",
-  "Smooth Animations with React-Spring",
-  "Serverless Contact Form via Formspree",
+  <Text tid="personalPortfolioFeature1" />,
+  <Text tid="personalPortfolioFeature2" />,
+  <Text tid="personalPortfolioFeature3" />,
+  <Text tid="personalPortfolioFeature4" />,
+  <Text tid="personalPortfolioFeature5" />,
 ];
 
 export default function PortfolioPage() {
@@ -36,7 +39,7 @@ export default function PortfolioPage() {
       <div className="mb-1 flex flex-row justify-center items-center">
         <FaCode size={40} className="text-blue-400" />
         <h3 className="ml-4 text-white text-2xl tracking-wide font-semibold">
-          Personal Portfolio Page
+          <Text tid="personalPortfolioPage" />
         </h3>
       </div>
       <div className="flex flex-col border border-gray-800 rounded-xl">
@@ -102,7 +105,9 @@ export default function PortfolioPage() {
                     >
                       <div className="flex flex-row items-center hover:text-gray-500 cursor-pointer">
                         <FaGithub size={64} className="object-center" />
-                        <p className="ml-2 font-semibold">View Source</p>
+                        <p className="ml-2 font-semibold">
+                          <Text tid="viewSource" />
+                        </p>
                       </div>
                     </a>
                   </div>
@@ -124,13 +129,15 @@ export default function PortfolioPage() {
                     rel="noopener noreferrer"
                   >
                     <FaGithub className="w-12 h-12" />
-                    <p className="my-1 font-semibold">View Source</p>
+                    <p className="my-1 font-semibold">
+                      <Text tid="viewSource" />
+                    </p>
                   </a>
                 </div>
               </div>
 
               <p className="my-2 text-sm text-center font-semibold uppercase tracking-wide">
-                Technologies used:
+                <Text tid="technologiesUsed" />
               </p>
               <div className="flex flex-row flex-wrap justify-evenly font-semibold">
                 <div className="my-4 mx-4 flex flex-col items-center text-center">
@@ -189,14 +196,14 @@ export default function PortfolioPage() {
               <div>
                 <AiOutlineDown className="inline-flex h-6 w-6 mr-1 pb-1" />
                 <span className="text-lg mr-1 font-semibold uppercase my-auto">
-                  More
+                  <Text tid="more" />
                 </span>
               </div>
             ) : (
               <div>
                 <AiOutlineUp className="inline-flex h-6 w-6 mr-1 pb-1" />
                 <span className="text-lg mr-1 font-semibold uppercase my-auto">
-                  Less
+                  <Text tid="less" />
                 </span>
               </div>
             )}
@@ -220,27 +227,16 @@ export default function PortfolioPage() {
               <div className="flex flex-row justify-center mx-auto my-4">
                 <BsTextCenter className="inline-flex h-6 w-6 mr-1" />
                 <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
-                  About
+                  <Text tid="aboutProject" />
                 </span>
               </div>
               <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">
-                While there are no fancy technical things to implement (like
-                User Authentication, API calls or Database implementation), I
-                made sure to make it as visually appealing as I could - although
-                I am not a design-savvy person at all. After a certain amount of
-                research, I stumbled upon React-Spring, which is amazing albeit
-                rather complicated - so you'll find various animations
-                throughout the page like springs, trails and transitions.
+                <Text tid="aboutPersonalPortfolioPage1" />
                 <br />
-                Ever since my last project ("Make Me Awesome"), TailwindCSS has
-                kind of grown on me so I used it again. What I like about
-                Tailwind is that it doesn't come with pre-opinionated components
-                like Bootstrap so there's more room for creative freedom.
+                <Text tid="aboutPersonalPortfolioPage2" />
                 <br />
                 <br />
-                The entire page is open-sourced on Github and free for everyone
-                to use. If there are any suggestions, just open a Pull Request
-                or contact me via my Contact Form.
+                <Text tid="aboutPersonalPortfolioPage3" />
               </div>
             </div>
 

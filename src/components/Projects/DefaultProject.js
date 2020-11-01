@@ -3,6 +3,7 @@ import { useSpring, animated } from "react-spring";
 import Popover from "@material-ui/core/Popover";
 import { Transition } from "@tailwindui/react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Text } from "../Multilanguage/Text";
 
 //Icons
 import { BiListCheck } from "react-icons/bi";
@@ -116,7 +117,9 @@ const DefaultProject = (props) => {
                             rel="noopener noreferrer"
                           >
                             <FaGithub className="w-12 h-12" />
-                            <p className="mt-1 font-semibold">View Source</p>
+                            <p className="mt-1 font-semibold">
+                              <Text tid="viewSource" />
+                            </p>
                           </a>
                         </div>
 
@@ -136,7 +139,7 @@ const DefaultProject = (props) => {
                           >
                             <FaGlobe className="w-12 h-12" />
                             <p className="mt-1 font-semibold">
-                              View Live Version
+                              <Text tid="viewLiveVersion" />
                             </p>
                           </a>
                         </div>
@@ -172,7 +175,7 @@ const DefaultProject = (props) => {
                               </div>
                               <div className="flex flex-row">
                                 <p className="text-black font-semibold">
-                                  Password:
+                                  <Text tid="password" />
                                 </p>
                                 <p className="ml-1 text-blue-500">
                                   {passwordLogin}
@@ -202,7 +205,9 @@ const DefaultProject = (props) => {
                     rel="noopener noreferrer"
                   >
                     <FaGithub className="w-12 h-12" />
-                    <p className="my-1 font-semibold">View Source</p>
+                    <p className="my-1 font-semibold">
+                      <Text tid="viewSource" />
+                    </p>
                   </a>
                 </div>
 
@@ -215,13 +220,17 @@ const DefaultProject = (props) => {
                     rel="noopener noreferrer"
                   >
                     <FaGlobe className="w-12 h-12" />
-                    <p className="my-1 font-semibold">View Live Version</p>
+                    <p className="my-1 font-semibold">
+                      <Text tid="viewLiveVersion" />
+                    </p>
                   </a>
                   {hasLoginCredentials ? (
                     <div className="text-center">
                       <p className="mt-2 text-sm font-semibold">Login:</p>
                       <p className="text-xs italic">{userLogin}</p>
-                      <p className="mt-2 text-sm font-semibold">Password:</p>
+                      <p className="mt-2 text-sm font-semibold">
+                        <Text tid="password" />
+                      </p>
                       <p className="text-xs italic">{passwordLogin}</p>
                     </div>
                   ) : null}
@@ -232,7 +241,7 @@ const DefaultProject = (props) => {
                 {projectShortDescription}
               </p>
               <p className="mt-8 mb-2 text-sm text-center font-semibold uppercase tracking-wide">
-                Technologies used:
+                <Text tid="technologiesUsed" />
               </p>
               <div className="flex flex-row flex-wrap justify-evenly font-semibold">
                 {techStack
@@ -266,14 +275,14 @@ const DefaultProject = (props) => {
               <div>
                 <AiOutlineDown className="inline-flex h-6 w-6 mr-1 pb-1" />
                 <span className="text-lg mr-1 font-semibold uppercase my-auto">
-                  More
+                  <Text tid="more" />
                 </span>
               </div>
             ) : (
               <div>
                 <AiOutlineUp className="inline-flex h-6 w-6 mr-1 pb-1" />
                 <span className="text-lg mr-1 font-semibold uppercase my-auto">
-                  Less
+                  <Text tid="less" />
                 </span>
               </div>
             )}
@@ -298,7 +307,7 @@ const DefaultProject = (props) => {
               <div className="flex flex-row justify-center mx-auto my-4">
                 <BsTextCenter className="inline-flex h-6 w-6 mr-1" />
                 <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
-                  About
+                  <Text tid="aboutProject" />
                 </span>
               </div>
               <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">

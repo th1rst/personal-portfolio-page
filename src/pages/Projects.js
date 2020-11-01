@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, useTrail, animated } from "react-spring";
 import projectList from "../assets/data/ProjectList";
+import { Text } from "../components/Multilanguage/Text";
 
 const projects = projectList;
 
@@ -20,10 +21,10 @@ export default function Projects() {
   return (
     <div className="w-full min-h-screen bg-black">
       <h1 className="pt-4 text-3xl text-blue-400 font-semibold uppercase text-white text-center tracking-wider">
-        Projects
+        <Text tid="projectsHeading" />
       </h1>
       <h1 className="text-xs mb-12 uppercase text-white text-center">
-        (newest to oldest)
+        <Text tid="projectsSubheading" />
       </h1>
 
       {/* PROJECTS CONTAINER */}

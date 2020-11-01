@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Transition } from "@tailwindui/react";
 import { Text } from "./Multilanguage/Text";
-import { LanguageProvider } from "./Multilanguage/LanguageProvider";
 import LanguageSelector from "./Multilanguage/LanguageSelector";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdSettings } from "react-icons/md";
@@ -11,7 +10,7 @@ import { CgSun } from "react-icons/cg";
 import { useSpring, useTrail, animated } from "react-spring";
 import AnimatedLogo from "./AnimatedLogo";
 
-export default function Navigation(props) {
+export default function Navigation() {
   const [hidden, setHidden] = useState(true);
   const [settingsVisible, setsettingsVisible] = useState(false);
   const [hoveredProjects, setHoveredProjects] = useState(false);
@@ -34,7 +33,9 @@ export default function Navigation(props) {
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>Projects</span>
+      <span>
+        <Text tid="navProjects" />
+      </span>
     </Link>,
 
     <Link
@@ -42,7 +43,9 @@ export default function Navigation(props) {
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>About</span>
+      <span>
+        <Text tid="navAbout" />
+      </span>
     </Link>,
 
     <Link
@@ -50,7 +53,9 @@ export default function Navigation(props) {
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>Contact</span>
+      <span>
+        <Text tid="navContact" />
+      </span>
     </Link>,
   ];
   const trail = useTrail(mobileNavItems.length, { opacity: hidden ? 0 : 1 });

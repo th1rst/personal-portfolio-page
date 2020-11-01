@@ -18,6 +18,7 @@ import spFront from "../pictures/StartPage/spFront.png";
 import spBack from "../pictures/StartPage/spBack.png";
 import ppFront from "../pictures/PizzaPlace/ppFront.png";
 import ppBack from "../pictures/PizzaPlace/ppBack.png";
+import { Text } from "../../components/Multilanguage/Text"
 
 const projectList = [
   <PortfolioPage />,
@@ -33,40 +34,24 @@ const projectList = [
     hasLoginCredentials={true}
     userLogin={"john@doe.com"}
     passwordLogin={"testuser123"}
-    projectShortDescription={"A personal activity and productivity tracker."}
+    projectShortDescription={<Text tid="mmaSubheading" />}
     aboutProjectText={
       <div>
-        A while ago, a friend of mine asked me if I could build a "personal
-        improvement" Webapp for him where he could track his activities and see
-        where he spends his time on (productive tasks vs. unproductive tasks) so
-        he could improve himself and his time management. It sounded boring at
-        first, but the more I thought about it, the more I liked the idea
-        because it's more "interactive" than the Sites I've built before... and
-        since I was looking for a new project idea anyways, I thought I'd go for
-        it. <br /> <br />
-        Realistically, the App won't have many users, so learning to build a
-        complete Backend for it would be too much - instead, I used Google
-        Firebase Auth and Firestore as a Backend, which, in retrospect, were
-        more than enough new technologies to learn at once. For Firebase auth, I
-        stuck to a Tutorial by Rwieruch which was super helpful and teached me
-        lots of things. While this project took me significantly longer than
-        anticipated (because after Covid Lockdowns I started working full time
-        again), it was SO much fun and although this wasn't my first React
-        project, it finally "clicked" to the point where I could work my way
-        through the different Documentations to finish this project and had to
-        google a lot less.
+        <Text tid="aboutMma1" />
+        <br /> <br />
+        <Text tid="aboutMma2" />
       </div>
     }
     features={[
-      "User Authentication + Account",
-      "Settings (Password reset, change Email)",
-      "Customizable 'Quick Activities'",
-      "Customizable Profile + Banner Picture",
-      "Motivational Random Quote via API",
-      "Data Visualization via ApexCharts",
-      "Table overview (All Activities) incl. filtering",
-      "'Live Activities' (Stopwatch, Counter)",
-      "Manually enter activities with Date Picker",
+      <Text tid="mmaFeature1" />,
+      <Text tid="mmaFeature2" />,
+      <Text tid="mmaFeature3" />,
+      <Text tid="mmaFeature4" />,
+      <Text tid="mmaFeature5" />,
+      <Text tid="mmaFeature6" />,
+      <Text tid="mmaFeature7" />,
+      <Text tid="mmaFeature8" />,
+      <Text tid="mmaFeature9" />
     ]}
     techStack={[
       {
@@ -107,7 +92,7 @@ const projectList = [
   />,
 
   <DefaultProject
-    name={"Kaufmanns Recipe Site"}
+    name={<Text tid="krsHeading" />}
     imageFront={ksrOverview}
     imageBack={ksrBack}
     githubLink={
@@ -117,32 +102,24 @@ const projectList = [
       "https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/"
     }
     hasLoginCredentials={false}
-    projectShortDescription={"Over 180 real family recipes."}
+    projectShortDescription={<Text tid="krsSubheading" />}
     aboutProjectText={
       <div>
-        Our family loves to cook - and since I use cooking websites frequently,
-        and also use my grandfather's recipes frequently, I thought I'd make the
-        best of both worlds and combine the two. <br /> <br />
-        Kaufmanns Recipe Site (or "Kaufmanns-Rezeptsammlung" in German) is a
-        real Website with my grandfather's collection of ~180 phenomenal recipes
-        collected over the last 50 years - some of which were even made by my
-        great-great-grandmother. The recipes were once used in a Print-On-Demand
-        book that was sold on Amazon KDP and a 237-page PDF version in
-        print-ready quality of said book is available to download for free (make
-        sure to use Dual Page Layout when reading). Since it's a "real" Website
-        including real-world content, everything is written in German.
+        <Text tid="aboutKrs1" />
+        <br /> <br />
+        <Text tid="aboutKrs2" />
       </div>
     }
     features={[
-      "Over 180 real recipes from my grandfather",
-      "Including 237 page Ebook made in Photoshop",
-      "'Real' Website (German Content)",
-      "11 Recipe Categories",
-      "Contentful Database API",
-      "Searchable Recipes",
-      "Logic set up for X amount of recipes (expandable)",
-      "Custom CSS and React-Bootstrap",
-      "Social Media Share funtion",
+      <Text tid="krsFeature1" />,
+      <Text tid="krsFeature2" />,
+      <Text tid="krsFeature3" />,
+      <Text tid="krsFeature4" />,
+      <Text tid="krsFeature5" />,
+      <Text tid="krsFeature6" />,
+      <Text tid="krsFeature7" />,
+      <Text tid="krsFeature8" />,
+      <Text tid="krsFeature9" />
     ]}
     techStack={[
       {
