@@ -3,6 +3,7 @@ import { ReCaptcha, Input, Textarea, Button } from "react-rainbow-components";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import SuccessModal from "./SuccessModal";
+import { Text } from "./Multilanguage/Text";
 
 const formID = process.env.REACT_APP_FORM_ID;
 
@@ -34,7 +35,7 @@ class ContactForm extends React.Component {
     const userName = event.target.value;
     let error;
     if (userName === undefined || userName === "") {
-      error = "the name is required";
+      error = <Text tid="nameRequired" />;
     }
     this.setState({ userName: event.target.value, userNameError: error });
   }
@@ -43,7 +44,7 @@ class ContactForm extends React.Component {
     const email = event.target.value;
     let error;
     if (email === undefined || email === "") {
-      error = "the email is required";
+      error = <Text tid="emailRequired" />;
     }
     this.setState({ email: event.target.value, emailError: error });
   }
@@ -52,7 +53,7 @@ class ContactForm extends React.Component {
     const message = event.target.value;
     let error;
     if (message === undefined || message === "") {
-      error = "the message is required";
+      error = <Text tid="messageRequired" />;
     }
     this.setState({ message: event.target.value, messageError: error });
   }
@@ -60,7 +61,7 @@ class ContactForm extends React.Component {
   handleReCaptchaSuccess(token) {
     let error;
     if (token === undefined) {
-      error = "the recaptcha needs to be completed";
+      error = <Text tid="captchaRequired" />;
     }
     this.setState({ recaptcha: token, recaptchaError: error });
   }
@@ -101,19 +102,19 @@ class ContactForm extends React.Component {
     let reload = false;
     const { userName, email, message, recaptcha } = this.state;
     if (userName === undefined || userName === "") {
-      error.userNameError = "the name is required";
+      error.userNameError = <Text tid="nameRequired" />;
       reload = true;
     }
     if (email === undefined || email === "") {
-      error.emailError = "the email is required";
+      error.emailError = <Text tid="emailRequired" />;
       reload = true;
     }
     if (message === undefined || message === "") {
-      error.messageError = "the message is required";
+      error.messageError = <Text tid="messageRequired" />;
       reload = true;
     }
     if (recaptcha === undefined) {
-      error.recaptchaError = "the recaptcha needs to be completed";
+      error.recaptchaError = <Text tid="captchaRequired" />;
       reload = true;
     }
     if (reload) {
@@ -144,7 +145,7 @@ class ContactForm extends React.Component {
           <div className="w-full md:w-2/3 mx-auto">
             <form onSubmit={this.handleSubmit}>
               <h1 className="mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
-                Contact Me
+                <Text tid="contactMe" />
               </h1>
               <div className="flex flex-row justify-center mx-16 mb-8">
                 <Input
@@ -168,7 +169,7 @@ class ContactForm extends React.Component {
               </div>
               <Textarea
                 className="mx-16"
-                label="Message"
+                label={<Text tid="message" />}
                 placeholder="Enter a message"
                 value={message}
                 error={messageError}
@@ -183,7 +184,7 @@ class ContactForm extends React.Component {
                 />
                 <Button
                   className="h-10 mt-8"
-                  label="Send"
+                  label={<Text tid="send" />}
                   variant="brand"
                   type="submit"
                 />

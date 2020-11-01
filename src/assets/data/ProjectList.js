@@ -18,7 +18,7 @@ import spFront from "../pictures/StartPage/spFront.png";
 import spBack from "../pictures/StartPage/spBack.png";
 import ppFront from "../pictures/PizzaPlace/ppFront.png";
 import ppBack from "../pictures/PizzaPlace/ppBack.png";
-import { Text } from "../../components/Multilanguage/Text"
+import { Text } from "../../components/Multilanguage/Text";
 
 const projectList = [
   <PortfolioPage />,
@@ -51,7 +51,7 @@ const projectList = [
       <Text tid="mmaFeature6" />,
       <Text tid="mmaFeature7" />,
       <Text tid="mmaFeature8" />,
-      <Text tid="mmaFeature9" />
+      <Text tid="mmaFeature9" />,
     ]}
     techStack={[
       {
@@ -119,7 +119,7 @@ const projectList = [
       <Text tid="krsFeature6" />,
       <Text tid="krsFeature7" />,
       <Text tid="krsFeature8" />,
-      <Text tid="krsFeature9" />
+      <Text tid="krsFeature9" />,
     ]}
     techStack={[
       {
@@ -154,32 +154,23 @@ const projectList = [
     }
     liveVersionLink={"https://kochannek.com/portfolio/lamberttravel/"}
     hasLoginCredentials={false}
-    projectShortDescription={"A Mockup Travel Agency Site in React."}
+    projectShortDescription={<Text tid="ltSubheading" />}
     aboutProjectText={
       <div>
-        My second attempt of using React. A mockup Travel agency Website that
-        displays backend data from Contentful and lets the user filter through
-        it. For each section (Double Economy, Beachfront Luxurious etc.) there
-        is a Hero-component.
+        <Text tid="aboutLt1" />
         <br />
-        The pictures are copyright-free pictures from Unsplash and may or may
-        not be accurate representations of their categories and/or be related.
+        <Text tid="aboutLt2" />
         <br />
-        The whole Project has been inspired by "Coding Addict"'s Youtube video,
-        though I only got inspired by the Layout - everything else is built from
-        scratch. In the end, I wanted to learn something and not just copy his
-        code (which is most likely significantly more elegant than mine).
+        <Text tid="aboutLt3" />
         <br />
         <br />
-        Note: I did not "beautify" the Code after months of gaining more
-        knowledge (after all, I want to document my improvements), so the code
-        quality is not up-to-date.
+        <Text tid="aboutLt4" />
       </div>
     }
     features={[
-      "Searchable Rooms (filtering)",
-      "One 'Single Room' Component that accepts props (expandable)",
-      "Realistic Looking Design",
+      <Text tid="ltFeature1" />,
+      <Text tid="ltFeature2" />,
+      <Text tid="ltFeature3" />,
     ]}
     techStack={[
       {
@@ -214,26 +205,21 @@ const projectList = [
     }
     liveVersionLink={"https://kochannek.com/portfolio/giphyclone/"}
     hasLoginCredentials={false}
-    projectShortDescription={"A very simple Giphy Clone using their API."}
+    projectShortDescription={<Text tid="gcSubheading" />}
     aboutProjectText={
       <div>
-        My first React Project that I built for training purposes.
+        <Text tid="aboutGc1" />
         <br />
-        By default "Trending" GIF's are pulled from the Giphy API and get
-        displayed in a Flexbox grid. There's a search bar on top where users can
-        input they Keyword and the content on the page gets re-rendered
-        accordingly. It's a simple Site but it works perfectly.
+        <Text tid="aboutGc2" />
         <br />
         <br />
-        Note: I did not "beautify" the Code after months of gaining more
-        knowledge (after all, I want to document my improvements), so the code
-        quality is not up-to-date.
+        <Text tid="aboutGc3" />
       </div>
     }
     features={[
-      "Searchable Giphy API",
-      "Fully Responsive using Flexbox",
-      "Modern Design",
+      <Text tid="gcFeature1" />,
+      <Text tid="gcFeature2" />,
+      <Text tid="gcFeature3" />,
     ]}
     techStack={[
       {
@@ -256,57 +242,57 @@ const projectList = [
     }
     liveVersionLink={"https://kochannek.com/portfolio/startpage/"}
     hasLoginCredentials={false}
-    projectShortDescription={
-      "A customizable Startpage using Privacy-Friendly alternatives."
-    }
+    projectShortDescription={<Text tid="spSubheading" />}
     aboutProjectText={
       <div>
-        Since I don't like the privacy-invading nature of Google and other big
-        tech companies alike, I liked the idea of making a privacy Startpage
-        which provides access to great open source alternatives without the need
-        to look for them. Just add them to the Startpage and that's it.
+        <Text tid="aboutSp1" />
         <br />
         <br />
         <div className="text-center">
-          Available "Widgets":
+          <Text tid="aboutSp2" />
           <br />
           <br />
           <ul>
-            <li>- DuckDuckGo Search Bar</li>
-            <li>- Openstreetmap (Openroute) Directions</li>
-            <li>- WeatherWidget.io</li>
-            <li>- Euronews WorldNews Widget</li>
-            <li>- Invidious Search Bar</li>
-            <li>- DeepL Translate Link</li>
+            <li>
+              - <Text tid="spListItem1" />
+            </li>
+            <li>
+              - <Text tid="spListItem2" />
+            </li>
+            <li>
+              - <Text tid="spListItem3" />
+            </li>
+            <li>
+              - <Text tid="spListItem4" />
+            </li>
+            <li>
+              - <Text tid="spListItem5" />
+            </li>
+            <li>
+              - <Text tid="spListItem6" />
+            </li>
           </ul>
         </div>
         <br />
         <br />
-        Using Gridstack.js, every item (Search Bar, News Widget etc.) can be
-        dragged, dropped and resized according to preference. The Grid can be
-        locked and the Layout is stored in LocalStorage.
+        <Text tid="aboutSp3" />
         <br />
-        The Site is not mobile-friendly on purpose as I saw no need for
-        something like a Start Page on mobile.
+        <Text tid="aboutSp4" />
         <br />
         <br />
-        Even in hindsight, this project was a cool idea and a lot of fun. Still,
-        after adding countless event listeners and onclick functions, I quickly
-        saw the need for something like React.
+        <Text tid="aboutSp5" />
         <br />
         <br />
-        Note: I did not "beautify" the Code after months of gaining more
-        knowledge (after all, I want to document my improvements), so the code
-        quality is not up-to-date.
+        <Text tid="aboutSp6" />
       </div>
     }
     features={[
-      "Privacy-friendly 'Widgets'",
-      "Fully customizable",
-      "Layout stored in LocalStorage",
-      "DuckDuckGo instead of Google Search",
-      "OpenStreetMap instead of Google Maps",
-      "Invidous Frontend instead of Youtube",
+      <Text tid="spFeature1" />,
+      <Text tid="spFeature2" />,
+      <Text tid="spFeature3" />,
+      <Text tid="spFeature4" />,
+      <Text tid="spFeature5" />,
+      <Text tid="spFeature6" />,
     ]}
     techStack={[
       {
@@ -327,7 +313,7 @@ const projectList = [
     ]}
   />,
   <DefaultProject
-    name={"Joey's Pizza Place"}
+    name={<Text tid="jppHeading" />}
     imageFront={ppBack}
     imageBack={ppFront}
     githubLink={
@@ -335,26 +321,22 @@ const projectList = [
     }
     liveVersionLink={"https://kochannek.com/portfolio/restaurant/"}
     hasLoginCredentials={false}
-    projectShortDescription={"A mockup Single Page Website of a Restaurant"}
+    projectShortDescription={<Text tid="jppSubheading" />}
     aboutProjectText={
       <div>
-        This was my first real project after leaving "Tutorial Hell".
+        <Text tid="aboutJpp1" />
         <br />
         <br />
-        A very simple Single Page Website using only HTML5 and CSS3 (and some
-        Bootstrap for the Slideshow) that resembles a fictional Pizza and Pasta
-        Restaurant called "Joey's".
+        <Text tid="aboutJpp2" />
         <br />
         <br />
-        Note: I did not "beautify" the Code after months of gaining more
-        knowledge (after all, I want to document my improvements), so the code
-        quality is not up-to-date.
+        <Text tid="aboutJpp3" />
       </div>
     }
     features={[
-      "Responsive",
-      "Image Slideshow",
-      "Attention to detail in funny descriptions",
+      <Text tid="jppFeature1" />,
+      <Text tid="jppFeature2" />,
+      <Text tid="jppFeature3" />,
     ]}
     techStack={[
       {
