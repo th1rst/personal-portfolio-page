@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSpring, useTrail, animated } from "react-spring";
 import projectList from "../assets/data/ProjectList";
 import { Text } from "../components/Multilanguage/Text";
+import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 
 const projects = projectList;
 
 export default function Projects() {
+  const { theme } = React.useContext(ThemeContext);
   const [hidden, setHidden] = useState(true);
   const { opacity } = useSpring({
     config: { duration: 1000 },
@@ -19,11 +21,23 @@ export default function Projects() {
   }, [setHidden]);
 
   return (
-    <div className="w-full min-h-screen bg-black">
-      <h1 className="pt-4 text-3xl text-blue-400 font-semibold uppercase text-white text-center tracking-wider">
+    <div
+      className={`${
+        theme === "dark" ? "bg-black" : "bg-white"
+      } w-full min-h-screen`}
+    >
+      <h1
+        className={`${
+          theme === "dark" ? "text-blue-400" : "text-blue-600"
+        } pt-4 text-3xl font-semibold uppercase text-white text-center tracking-wider`}
+      >
         <Text tid="projectsHeading" />
       </h1>
-      <h1 className="text-xs mb-12 uppercase text-white text-center">
+      <h1
+        className={`${
+          theme === "dark" ? "text-white" : "text-black"
+        } text-xs font-semibold mb-12 uppercase text-center`}
+      >
         <Text tid="projectsSubheading" />
       </h1>
 

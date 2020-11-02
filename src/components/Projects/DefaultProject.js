@@ -4,6 +4,7 @@ import Popover from "@material-ui/core/Popover";
 import { Transition } from "@tailwindui/react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Text } from "../Multilanguage/Text";
+import { ThemeContext } from "../DarkMode/ThemeProvider";
 
 //Icons
 import { BiListCheck } from "react-icons/bi";
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DefaultProject = (props) => {
+  const { theme } = React.useContext(ThemeContext);
   const [flipped, setFlipped] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -57,11 +59,15 @@ const DefaultProject = (props) => {
   } = props;
 
   return (
-    <div className="mb-16">
+    <div className="mb-16 shadow-xl">
       {/* HEADING */}
       <div className="mb-1 flex flex-row justify-center items-center">
         <FaCode size={40} className="text-blue-400" />
-        <h3 className="ml-4 text-white text-2xl tracking-wide font-semibold">
+        <h3
+          className={`${
+            theme === "dark" ? "text-white" : "text-black"
+          } ml-4 text-2xl tracking-wide font-semibold`}
+        >
           {name}
         </h3>
       </div>
@@ -101,14 +107,20 @@ const DefaultProject = (props) => {
                 {/* IMAGE BACK, WITH LINKS TO PROJECT */}
                 <div>
                   <img
-                    className="opacity-50 absolute w-full h-full object-cover rounded-lg"
+                    className="absolute w-full h-full object-cover rounded-lg"
                     src={imageBack}
                     alt="login"
                   />
                   <div className="absolute w-full h-full flex flex-col justify-center">
                     <div className="flex flex-col">
                       <div className="flex flex-row justify-evenly">
-                        <div className="text-white hover:text-gray-500 cursor-pointer">
+                        <div
+                          className={`${
+                            theme === "dark"
+                              ? "text-white hover:text-gray-500"
+                              : "text-gray-500 hover:text-gray-800"
+                          } cursor-pointer`}
+                        >
                           {/* GITHUB */}
                           <a
                             className="flex flex-col items-center "
@@ -124,7 +136,11 @@ const DefaultProject = (props) => {
                         </div>
 
                         <div
-                          className="text-white hover:text-gray-500 cursor-pointer"
+                          className={`${
+                            theme === "dark"
+                              ? "text-white hover:text-gray-500"
+                              : "text-gray-500 hover:text-gray-800"
+                          } cursor-pointer`}
                           aria-owns={open ? "mouse-over-popover" : undefined}
                           aria-haspopup="true"
                           onMouseEnter={handlePopoverOpen}
@@ -193,7 +209,11 @@ const DefaultProject = (props) => {
           </div>
           {/* DESCRIPTION */}
           <div className="w-full md:w-1/2 m-2">
-            <div className="w-full h-full flex flex-col justify-center text-white">
+            <div
+              className={`${
+                theme === "dark" ? "text-white" : "text-black"
+              } w-full h-full flex flex-col justify-center`}
+            >
               {/* CONTAINER FOR MOBILE GITHUB / LIVE VERSION, HIDDEN >md breakpoint*/}
               <div className="md:hidden mt-8 mb-4 flex flex-row justify-evenly">
                 <div className="hover:text-gray-500 cursor-pointer">
@@ -264,7 +284,11 @@ const DefaultProject = (props) => {
           </div>
         </div>
         <div className="my-4 mx-16 border border-gray-900" />
-        <div className="mb-4 flex flex-row justify-center content-center text-white">
+        <div
+          className={`${
+            theme === "dark" ? "text-white" : "text-black"
+          } mb-4 flex flex-row justify-center content-center`}
+        >
           <div
             className="w-auto cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1"
             onMouseEnter={() => setHoveredFeaturesButton(true)}
@@ -302,7 +326,11 @@ const DefaultProject = (props) => {
         </div>
 
         {moreInfoVisible ? (
-          <div className="flex flex-col items-center text-white ">
+          <div
+            className={`${
+              theme === "dark" ? "text-white" : "text-black"
+            } flex flex-col items-center`}
+          >
             <div className="mt-2 w-full">
               <div className="flex flex-row justify-center mx-auto my-4">
                 <BsTextCenter className="inline-flex h-6 w-6 mr-1" />
