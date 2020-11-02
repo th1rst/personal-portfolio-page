@@ -1,8 +1,11 @@
 import React from "react";
 import Particles from "react-tsparticles";
 import codeSVG from "../assets/svg/code.svg"
+import { ThemeContext } from "../components/DarkMode/ThemeProvider"
 
 export default function ParticleBackground() {
+  const { theme } = React.useContext(ThemeContext);
+  
   return (
     <>
       <Particles
@@ -150,7 +153,7 @@ export default function ParticleBackground() {
             url: codeSVG
           },
           background: {
-            color: "#000000",
+            color: `${theme === "dark" ? "#000000" : "#ffffff"}`,
             repeat: "no-repeat",
             size: "cover"
           }

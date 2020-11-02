@@ -193,7 +193,7 @@ export default function Navigation() {
             </div>
             {settingsVisible ? (
               <animated.div
-                className="flex flex-row"
+                className="flex flex-row items-center"
                 style={{
                   transform: xyz.interpolate(
                     (x, y, z) => `translate3d(${x}px, ${y}px, ${z}px)`
