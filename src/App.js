@@ -6,7 +6,7 @@ import Projects from "./pages/Projects";
 import Error404 from "./pages/Error404";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer";
 
 const App = () => {

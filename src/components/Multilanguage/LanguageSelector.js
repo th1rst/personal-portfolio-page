@@ -1,79 +1,42 @@
 import React, { useContext, useEffect } from "react";
 import { LanguageContext } from "./LanguageProvider";
 
-export default function LanguageSelector() {
+export function LanguageSelector() {
   const { userLanguage, userLanguageChange } = useContext(LanguageContext);
 
   useEffect(() => {
-    let defaultLanguage = window.localStorage.getItem("userLanguage");
-    if (!defaultLanguage) {
-      defaultLanguage = window.navigator.language.substring(0, 2);
+    let userLanguage = window.localStorage.getItem("userLanguage");
+    if (!userLanguage) {
+      userLanguage = "english";
     }
-    userLanguageChange(defaultLanguage);
+    userLanguageChange(userLanguage);
   }, [userLanguageChange]);
 
   return (
     <div className="ml-2 flex flex-row text-sm font-semibold">
-      <p
+      <span
         className={`mr-px ${
-          userLanguage === "english"
-            ? "text-white"
-            : "text-gray-500 hover:text-white cursor-pointer"
+          userLanguage === "english" ? "opacity-50" : "cursor-pointer"
         }`}
         onClick={() => userLanguageChange("english")}
+        role="img"
+        aria-label="british-flag"
       >
-        EN
-      </p>
+        🇬🇧
+      </span>
+
       <div className="mx-1 h-4 my-auto w-px border-l border-gray-700" />
-      <p
+
+      <span
         className={`ml-px ${
-          userLanguage === "german"
-            ? "text-white"
-            : "text-gray-500 hover:text-white cursor-pointer"
+          userLanguage === "german" ? "opacity-50" : "cursor-pointer"
         }`}
         onClick={() => userLanguageChange("german")}
+        role="img"
+        aria-label="german-flag"
       >
-        DE
-      </p>
+        🇩🇪
+      </span>
     </div>
   );
 }
-
-/* ORIGINAL 
-
-
-import React, { useContext, useEffect } from "react";
-
-import { languageOptions } from "./Dictionary";
-import { LanguageContext } from "./LanguageProvider";
-
-export default function LanguageSelector() {
-  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
-
-  // set selected language by calling context method
-  const handleLanguageChange = (e) => userLanguageChange(e.target.value);
-
-  useEffect(() => {
-    let defaultLanguage = window.localStorage.getItem("userLanguage");
-    if (!defaultLanguage) {
-      defaultLanguage = window.navigator.language.substring(0, 2);
-    }
-    userLanguageChange(defaultLanguage);
-  }, [userLanguageChange]);
-
-  return (
-    <select onChange={handleLanguageChange} value={userLanguage}>
-      {Object.entries(languageOptions).map(([id, name]) => (
-        <option key={id} value={id}>
-          {name}
-        </option>
-      ))}
-    </select>
-  );
-}
-
-
-
-
-
-*/

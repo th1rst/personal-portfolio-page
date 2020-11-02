@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Transition } from "@tailwindui/react";
-import { Text } from "./Multilanguage/Text";
-import LanguageSelector from "./Multilanguage/LanguageSelector";
+import { Text } from "../Multilanguage/Text";
+import { LanguageSelector } from "../Multilanguage/LanguageSelector";
+import { ThemeSelector } from "../DarkMode/ThemeSelector";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdSettings } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
-import { CgSun } from "react-icons/cg";
 import { useSpring, useTrail, animated } from "react-spring";
-import AnimatedLogo from "./AnimatedLogo";
+import { AnimatedLogoDark } from "./AnimatedLogoDark";
+import { AnimatedLogoLight } from "./AnimatedLogoLight";
+import { ThemeContext } from "../DarkMode/ThemeProvider";
 
 export default function Navigation() {
   const [hidden, setHidden] = useState(true);
@@ -16,6 +17,7 @@ export default function Navigation() {
   const [hoveredProjects, setHoveredProjects] = useState(false);
   const [hoveredAbout, setHoveredAbout] = useState(false);
   const [hoveredContact, setHoveredContact] = useState(false);
+  const { theme } = React.useContext(ThemeContext);
 
   const { opacity } = useSpring({
     config: { duration: 600 },
@@ -62,23 +64,37 @@ export default function Navigation() {
 
   return (
     <div className="border-b border-gray-800 shadow-xl">
-      <nav className="flex items-center bg-black p-3 flex-wrap transition duration-300 ease-in-out">
+      <nav
+        className={`${
+          theme === "dark" ? "bg-black" : "bg-white"
+        } flex items-center p-3 flex-wrap transition duration-300 ease-in-out`}
+      >
         <Link to="/" className="ml-2 inline-flex items-center">
-          <AnimatedLogo />
+          {theme === "dark" ? <AnimatedLogoDark /> : <AnimatedLogoLight />}
         </Link>
         <div className="ml-1 flex flex-col items-start justify-center">
-          <h1 className="text-white text-xl uppercase font-bold tracking-tighter leading-none">
+          <h1
+            className={`${
+              theme === "dark" ? "text-white" : "text-black"
+            } text-xl uppercase font-bold tracking-tighter leading-none`}
+          >
             Marco
             <div className="inline-flex mx-1 w-1 h-1 bg-red-500" />
             Kochannek
           </h1>
-          <h1 className="text-gray-400 text-md tracking-wider leading-none">
+          <h1
+            className={`${
+              theme === "dark" ? "text-gray-400" : "text-gray-800"
+            } text-md tracking-wider leading-none`}
+          >
             Frontend Web Developer
           </h1>
         </div>
 
         <button
-          className="text-white inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler"
+          className={`${
+            theme === "dark" ? "text-white" : "text-black"
+          } inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler`}
           onClick={() => setHidden(!hidden)}
         >
           <GiHamburgerMenu className="text-xl" />
@@ -92,7 +108,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredProjects(true)}
               onMouseLeave={() => setHoveredProjects(false)}
               to="/projects"
-              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1"
+              className={`${
+                theme === "dark" ? "text-gray-300" : "text-gray-800"
+              } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
               <span className="text-md uppercase font-semibold">
                 <Text tid="navProjects" />
@@ -115,7 +133,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredAbout(true)}
               onMouseLeave={() => setHoveredAbout(false)}
               to="/about"
-              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+              className={`${
+                theme === "dark" ? "text-gray-300" : "text-gray-800"
+              } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
               <span className="text-md uppercase font-semibold">
                 <Text tid="navAbout" />
@@ -138,7 +158,9 @@ export default function Navigation() {
               onMouseEnter={() => setHoveredContact(true)}
               onMouseLeave={() => setHoveredContact(false)}
               to="/contact"
-              className="mx-1 w-full px-3 py-2 rounded text-gray-300 items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 "
+              className={`${
+                theme === "dark" ? "text-gray-300" : "text-gray-800"
+              } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
               <span className="text-md uppercase font-semibold">
                 <Text tid="navContact" />
@@ -162,7 +184,11 @@ export default function Navigation() {
               <MdSettings
                 onClick={() => setsettingsVisible(!settingsVisible)}
                 size={20}
-                className="text-white hover:text-gray-500 cursor-pointer"
+                className={`${
+                  theme === "dark"
+                    ? "text-white hover:text-gray-500"
+                    : "text-gray-800 hover:text-gray-500"
+                } cursor-pointer`}
               />
             </div>
             {settingsVisible ? (
@@ -174,12 +200,7 @@ export default function Navigation() {
                   ),
                 }}
               >
-                <div className="ml-4 mr-2">
-                  <CgSun
-                    size={20}
-                    className="text-white hover:text-gray-500 cursor-pointer"
-                  />
-                </div>
+                <ThemeSelector />
                 <LanguageSelector />
               </animated.div>
             ) : null}

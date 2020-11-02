@@ -1,9 +1,8 @@
-// Animation.js
 import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
 import { GradientPinkBlue as CircleGradient } from "@vx/gradient";
 
-export default function AnimatedLogo() {
+export function AnimatedLogoDark() {
   const [hovered, setHovered] = useState(false);
   const transitions = useTransition(hovered, null, {
     from: { position: "absolute", opacity: 0 },
