@@ -18,13 +18,7 @@ export default function About() {
         >
           <h1>
             When I'm not writing code, I love to write{" "}
-            <Link
-              className="underline"
-              to={{
-                pathname: "/previewer/kaufmanns-rezeptsammlung",
-                state: { pageCount: 237, bookShortName: "ksr", coverURL: "https://kochannek.com/books/ksr/jpg/cover.jpg" },
-              }}
-            >
+            <Link className="underline" to="/previewer/kaufmannsrezeptsammlung">
               books
             </Link>{" "}
           </h1>

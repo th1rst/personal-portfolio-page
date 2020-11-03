@@ -99,5 +99,7 @@
   "emailRequired": "Die Email wird benötigt",
   "messageRequired": "Die Nachricht wird benötigt",
   "captchaRequired": "Das ReCaptcha wird benötigt",
-  "send": "Senden"
+  "send": "Senden",
+  "goToPage": "Zu Seite",
+  "of": "von"
 }
