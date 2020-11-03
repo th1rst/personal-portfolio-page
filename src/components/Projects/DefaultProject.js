@@ -107,7 +107,7 @@ const DefaultProject = (props) => {
                 {/* IMAGE BACK, WITH LINKS TO PROJECT */}
                 <div>
                   <img
-                    className="absolute w-full h-full object-cover rounded-lg"
+                    className="absolute w-full h-full object-cover rounded-lg opacity-50"
                     src={imageBack}
                     alt="login"
                   />
@@ -118,7 +118,7 @@ const DefaultProject = (props) => {
                           className={`${
                             theme === "dark"
                               ? "text-white hover:text-gray-500"
-                              : "text-gray-500 hover:text-gray-800"
+                              : "text-gray-900 hover:text-gray-600"
                           } cursor-pointer`}
                         >
                           {/* GITHUB */}
@@ -139,7 +139,7 @@ const DefaultProject = (props) => {
                           className={`${
                             theme === "dark"
                               ? "text-white hover:text-gray-500"
-                              : "text-gray-500 hover:text-gray-800"
+                              : "text-gray-900 hover:text-gray-600"
                           } cursor-pointer`}
                           aria-owns={open ? "mouse-over-popover" : undefined}
                           aria-haspopup="true"

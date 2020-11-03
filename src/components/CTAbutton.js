@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { Text } from "../components/Multilanguage/Text";
-import { ThemeContext } from "../components/DarkMode/ThemeProvider";
+import { Text } from "./Multilanguage/Text";
+import { ThemeContext } from "./DarkMode/ThemeProvider";
 
 export function CTAbutton() {
   const { theme } = React.useContext(ThemeContext);

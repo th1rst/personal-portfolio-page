@@ -6,6 +6,7 @@ import { LanguageSelector } from "../Multilanguage/LanguageSelector";
 import { ThemeSelector } from "../DarkMode/ThemeSelector";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdSettings } from "react-icons/md";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { useSpring, useTrail, animated } from "react-spring";
 import { AnimatedLogoDark } from "./AnimatedLogoDark";
 import { AnimatedLogoLight } from "./AnimatedLogoLight";
@@ -28,14 +29,19 @@ export default function Navigation() {
     xyz: settingsVisible ? [0, 0, 0] : [120, 0, 0],
   });
 
-  //items for react-spring to map over, mobile version
+  //items for react-spring to map over (for trailing), mobile version
   const mobileNavItems = [
+    <div className="mt-4 w-screen px-8 mx-auto h-12 flex flex-row justify-between items-center">
+      <ThemeSelector />
+      <LanguageSelector />
+    </div>,
+
     <Link
       to="/projects"
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>
+      <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
         <Text tid="navProjects" />
       </span>
     </Link>,
@@ -45,7 +51,7 @@ export default function Navigation() {
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>
+      <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
         <Text tid="navAbout" />
       </span>
     </Link>,
@@ -55,7 +61,7 @@ export default function Navigation() {
       className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
       onClick={() => setHidden(true)}
     >
-      <span>
+      <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
         <Text tid="navContact" />
       </span>
     </Link>,
@@ -181,15 +187,27 @@ export default function Navigation() {
 
             <div className="mx-2 h-4 w-2 border-l border-gray-700" />
             <div className="mx-2">
-              <MdSettings
-                onClick={() => setsettingsVisible(!settingsVisible)}
-                size={20}
-                className={`${
-                  theme === "dark"
-                    ? "text-white hover:text-gray-500"
-                    : "text-gray-800 hover:text-gray-500"
-                } cursor-pointer`}
-              />
+              {!settingsVisible ? (
+                <MdSettings
+                  onClick={() => setsettingsVisible(!settingsVisible)}
+                  size={20}
+                  className={`${
+                    theme === "dark"
+                      ? "text-white hover:text-gray-500"
+                      : "text-gray-800 hover:text-gray-500"
+                  } cursor-pointer`}
+                />
+              ) : (
+                <AiFillCloseCircle
+                  onClick={() => setsettingsVisible(!settingsVisible)}
+                  size={20}
+                  className={`${
+                    theme === "dark"
+                      ? "text-white hover:text-gray-500"
+                      : "text-gray-800 hover:text-gray-500"
+                  } cursor-pointer`}
+                />
+              )}
             </div>
             {settingsVisible ? (
               <animated.div
@@ -218,7 +236,7 @@ export default function Navigation() {
                 const item = mobileNavItems[i];
                 return (
                   <animated.li style={{ opacity }} key={Math.random() * 1000}>
-                    <div className="w-full text-center flex flex-col">
+                    <div className="w-full text-center font-semibold uppercase flex flex-col">
                       {item}
                     </div>
                   </animated.li>
