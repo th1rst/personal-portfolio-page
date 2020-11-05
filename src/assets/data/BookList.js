@@ -4,11 +4,13 @@ export const BookList = [
         shortName: "kaufmannsrezeptsammlung",
         coverURL: "https://kochannek.com/books/kaufmannsrezeptsammlung/jpg/cover.jpg",
         pageCount: 237,
+        role: "Designer"
     },
     {
-        name: "TestBook",
-        shortName: "testBook",
-        coverURL: "https://kochannek.com/books/testbook/jpg/cover.jpg",
-        pageCount: 123,
+        name: "Hundeerziehung Grundlagen",
+        shortName: "hegrundlagen",
+        coverURL: "https://kochannek.com/books/hegrundlagen/jpg/cover.jpg",
+        pageCount: 55,
+        role: "Author"
     }
 ]

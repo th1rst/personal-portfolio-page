@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineCheck } from "react-icons/ai";
+import { Text } from "../components/Multilanguage/Text";
 
 export default function SuccessModal() {
   return (
@@ -14,7 +15,7 @@ export default function SuccessModal() {
               <AiOutlineCheck size={12} className="text-white" />
             </span>
             <span class="font-semibold mr-2 text-left flex-auto">
-              Message sent! I'll be in touch shortly.
+              <Text tid="successModalText" />
             </span>
           </div>
         </div>

@@ -101,5 +101,6 @@
   "captchaRequired": "Das ReCaptcha wird benötigt",
   "send": "Senden",
   "goToPage": "Zu Seite",
-  "of": "von"
+  "of": "von",
+  "successModalText": "Nachricht gesendet! Ich werde sobald wie möglich antworten."
 }

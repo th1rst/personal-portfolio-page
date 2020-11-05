@@ -43,7 +43,7 @@ export default class BookPreviewer extends React.Component {
   findBookFromURL = () => {
     const slug = this.props.match.params.slug;
 
-    BookList.map((book) => {
+    BookList.forEach((book) => {
       if (book.shortName === slug) {
         this.setState({
           totalPages: book.pageCount,
@@ -129,9 +129,9 @@ export default class BookPreviewer extends React.Component {
                     <input
                       className={`${
                         theme === "dark"
-                          ? "text-black bg-gray-200"
-                          : "text-white bg-gray-400"
-                      } mx-2 w-10 rounded-lg text-center`}
+                          ? "bg-gray-200"
+                          : "bg-gray-400"
+                      } text-black mx-2 w-10 rounded-lg text-center`}
                       name="currentPage"
                       type="input"
                       value={userInput}

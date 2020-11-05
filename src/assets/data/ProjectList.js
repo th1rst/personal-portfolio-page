@@ -1,6 +1,9 @@
 import React from "react";
 import PortfolioPage from "../../components/Projects/CustomProjects/PortfolioPage";
 import DefaultProject from "../../components/Projects/DefaultProject";
+import { Text } from "../../components/Multilanguage/Text";
+
+//Icons
 import { SiTailwindcss } from "react-icons/si";
 import { FaReact, FaCss3Alt, FaHtml5 } from "react-icons/fa";
 import { DiJavascript } from "react-icons/di";
@@ -18,7 +21,7 @@ import spFront from "../pictures/StartPage/spFront.png";
 import spBack from "../pictures/StartPage/spBack.png";
 import ppFront from "../pictures/PizzaPlace/ppFront.png";
 import ppBack from "../pictures/PizzaPlace/ppBack.png";
-import { Text } from "../../components/Multilanguage/Text";
+import firebaseLogo from "../pictures/firebaseLogo.png";
 
 const projectList = [
   <PortfolioPage />,
@@ -68,13 +71,7 @@ const projectList = [
       },
       {
         name: "Firebase",
-        logo: (
-          <img
-            className="w-12 h-12"
-            src="https://png2.cleanpng.com/sh/a9d2c3dc4d3936284b440d384d94c2f7/L0KzQYm3VMI3N5RBfZH0aYP2gLBuTfZqepZneeVuLXPvf8brTf1me6Rmf9t3Zz3qf7FujPUubJZ7fd54cHX1g376jBZ1f5J3RadqZUHnSbfrgcQ6PGEARqkCMEm0SYmAUcUzPGg6SKo9NUa6RIK1kP5o/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png"
-            alt="firebase"
-          />
-        ),
+        logo: <img className="w-12 h-12" src={firebaseLogo} alt="firebase" />,
         subtexts: ["Firebase Auth", "Firestore"],
       },
       {
