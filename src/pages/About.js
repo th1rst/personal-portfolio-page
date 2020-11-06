@@ -1,39 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import firebaseLogo from "../assets/pictures/firebaseLogo.png";
+import { BookSVG } from "../assets/svg/components/BookSVG.js";
+import { CodeSVG } from "../assets/svg/components/CodeSVG.js";
 import SpringContainer from "../components/SpringContainer";
-import { FaCode, FaHtml5, FaCss3Alt, FaReact } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaGithub } from "react-icons/fa";
 import { DiJavascript, DiPhotoshop } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
-import { BsBook } from "react-icons/bs";
+import { BsFillBootstrapFill } from "react-icons/bs";
+import DogSVG from "../assets/svg/components/DogSVG";
+import { Text } from "../components/Multilanguage/Text";
 
 export default function About() {
   const { theme } = React.useContext(ThemeContext);
+  const [visibleText, setvisibleText] = useState("coding");
 
   return (
     <div className="w-screen min-h-screen">
       <div
         className={`${
-          theme === "dark" ? "bg-black" : "bg-white"
-        } absolute w-full h-screen flex justify-center border-2 border-red-500`}
+          theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+        } absolute w-full h-auto flex justify-center`}
       >
-        <div className="p-12 w-full flex flex-col border-2 border-blue-500">
+        <div className="p-12 w-full flex flex-col">
           <div className="flex flex-row justify-start items-center">
             <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-            <p className="text-white text-2xl font-bold uppercase ml-10 inline-flex">
-              Who I am
+            <p className="text-2xl font-bold uppercase ml-10 inline-flex">
+              <Text tid="whoIam" />
             </p>
           </div>
 
-          <div className="flex flex-row mb-12">
-            <div className="my-auto self-start h-40 w-full flex items-center justify-center">
+          <div className="mt-6 flex flex-row items-center mb-12">
+            <div className="self-start h-40 w-full flex items-center justify-center">
               <img
                 className="h-32 w-32 rounded-full object-cover"
                 src="https://kochannek.com/profile.jpg"
                 alt="profile"
               />
             </div>
-            <p className="text-white font-semibold tracking-tight leading-7 text-justify p-4 ml-10 inline-flex">
+            <p className="font-semibold tracking-tight leading-7 text-justify p-4 ml-10 inline-flex">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Exercitationem, sit rem natus quos repudiandae saepe, neque a
               culpa eius autem sunt tempore, ab nemo omnis! Blanditiis ipsa modi
@@ -45,92 +50,115 @@ export default function About() {
 
           <div className="flex flex-row justify-start items-center">
             <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-            <p className="text-white text-2xl font-bold uppercase ml-10 inline-flex">
-              Passions
+            <p className="text-2xl font-bold uppercase ml-10 inline-flex">
+              <Text tid="passions" />
             </p>
           </div>
 
-          <div className="w-full border-2 border-red-500 flex flex-row flex-wrap justify-around items-center mb-12">
-            <div className="h-40 w-40 border-2 border-blue-500 flex flex-col justify-center items-center">
-              <FaCode className="text-blue-400" size={96} />
-              <p className="text-white font-bold tracking-wide text-2xl uppercase">
-                CODING
-              </p>
-            </div>
+          <div className="mt-6 mb-12 w-full flex flex-row border-2 border-gray-800 rounded-lg">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row flex-wrap w-full justify-around items-center font-bold tracking-wide text-2xl uppercase">
+                <div
+                  className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
+                  onMouseEnter={() => setvisibleText("coding")}
+                  // Extra onClick for Mobile Version
+                  onClick={() => setvisibleText("coding")}
+                >
+                  <CodeSVG />
+                  <Text tid="coding" />
+                </div>
 
-            <div className="h-40 w-40 border-2 border-blue-500"></div>
-            <div className="h-40 w-40 border-2 border-blue-500"></div>
+                <div
+                  className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
+                  onMouseEnter={() => setvisibleText("writing")}
+                  onClick={() => setvisibleText("writing")}
+                >
+                  <BookSVG />
+                  <Text tid="writing" />
+                </div>
+
+                <div
+                  className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
+                  onMouseEnter={() => setvisibleText("dogs")}
+                  onClick={() => setvisibleText("dogs")}
+                >
+                  <DogSVG />
+                  <Text tid="dogs" />
+                </div>
+              </div>
+              <div className="flex flex-row w-full px-12 py-4 font-semibold tracking-tight leading-7 text-justify">
+                {visibleText === "coding" ? (
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Delectus neque quam exercitationem! Possimus fugit commodi a
+                    itaque, dolorum praesentium esse quidem veritatis et
+                    reiciendis mollitia dolore ipsam ex doloremque, eius
+                    excepturi. Quidem voluptatibus, asperiores pariatur
+                    consectetur officiis eligendi veniam inventore.
+                  </p>
+                ) : null}
+
+                {visibleText === "writing" ? (
+                  <div className="w-full h-full">
+                    <SpringContainer />
+                  </div>
+                ) : null}
+
+                {visibleText === "dogs" ? (
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Delectus neque quam exercitationem! Possimus fugit commodi a
+                    itaque, dolorum praesentium esse quidem veritatis et
+                    reiciendis mollitia dolore ipsam ex doloremque, eius
+                    excepturi. Quidem voluptatibus, asperiores pariatur
+                    consectetur officiis eligendi veniam inventore.
+                  </p>
+                ) : null}
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-row justify-start items-center">
             <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-            <p className="text-white text-2xl font-bold uppercase ml-10 inline-flex">
+            <p className="text-2xl font-bold uppercase ml-10 inline-flex">
               Skills
             </p>
           </div>
 
-          <div className="w-full border-2 border-red-500 flex flex-row flex-wrap justify-around items-center mb-12">
-          <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
+          <div className="text-white font-bold uppercase mt-6 w-full border-2 border-gray-800 rounded-lg flex flex-row flex-wrap justify-around items-center mb-12">
+            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <FaReact className="w-16 h-16" style={{ color: "#00b7ff" }} />
-              <p className="text-white font-bold tracking-wider text-lg uppercase">
-                React
-              </p>
+              <p className="tracking-wider text-lg uppercase">React</p>
             </div>
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <DiJavascript
                 className="w-16 h-16"
                 style={{ color: "#ddb440" }}
               />
-              <p className="text-white font-bold tracking-wider text-sm uppercase">
-                JavaScript
-              </p>
+              <p className="tracking-wider text-sm">JavaScript</p>
+            </div>
+            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
+              <img className="w-16 h-16" src={firebaseLogo} alt="firebase" />
+              <p className="tracking-wider">Firebase</p>
             </div>
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <SiTailwindcss
                 className="w-16 h-16"
                 style={{ color: "#38b2ac" }}
               />
-              <p className="text-white font-bold text-sm uppercase">
-                TailwindCSS
-              </p>
+              <p className="text-sm">TailwindCSS</p>
             </div>
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
-              <FaCss3Alt className="w-16 h-16" style={{ color: "#258ec8" }} />
-              <p className="text-white font-bold tracking-wider text-lg uppercase">
-                CSS 3
-              </p>
-            </div>
-            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
-              <img className="w-16 h-16" src={firebaseLogo} alt="firebase" />
-              <p className="text-white font-bold tracking-wider text-md uppercase">
-                Firebase
-              </p>
-            </div>
-            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
-              <img
+              <BsFillBootstrapFill
                 className="w-16 h-16"
-                src="https://avatars1.githubusercontent.com/u/472182?s=280&v=4"
-                alt="contentful"
+                style={{ color: "#563d7c" }}
               />
-              <p className="text-white font-bold tracking-wider text-sm uppercase">
-                Contentful
-              </p>
+              <p className="text-sm">Bootstrap</p>
             </div>
-            
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
-              <FaHtml5 className="w-16 h-16" style={{ color: "#dc4d25" }} />
-              <p className="text-white font-bold tracking-wider text-lg uppercase">
-                Html 5
-              </p>
+              <FaGithub className="w-16 h-16" style={{ color: "#ffffff" }} />
+              <p>GitHub</p>
             </div>
-            
-            
-            
-            
-
-            
-
-           
 
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <img
@@ -138,30 +166,32 @@ export default function About() {
                 src="https://camo.githubusercontent.com/234f6fe1b4fdef71cd8e1f5fbad043093d023dba/68747470733a2f2f617065786368617274732e636f6d2f6d656469612f72656163742d617065786368617274732e706e67"
                 alt="apexcharts"
               />
-              <p className="text-white font-bold text-sm uppercase">
-                ApexCharts
-              </p>
+              <p className="text-sm">ApexCharts</p>
             </div>
+
+            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
+              <img
+                className="w-16 h-16"
+                src="https://avatars1.githubusercontent.com/u/472182?s=280&v=4"
+                alt="contentful"
+              />
+              <p className="tracking-wider text-sm">Contentful</p>
+            </div>
+
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <DiPhotoshop className="w-16 h-16" style={{ color: "#00b7ff" }} />
-              <p className="text-white font-bold text-sm uppercase">
-                Photoshop
-              </p>
+              <p className="text-sm">Photoshop</p>
+            </div>
+            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
+              <FaCss3Alt className="w-16 h-16" style={{ color: "#258ec8" }} />
+              <p className="tracking-wider">CSS 3</p>
+            </div>
+            <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
+              <FaHtml5 className="w-16 h-16" style={{ color: "#dc4d25" }} />
+              <p className="tracking-wider">Html 5</p>
             </div>
           </div>
         </div>
-        {/* 
-        
-         <div
-          className={`${
-            theme === "dark" ? "text-white" : "text-black"
-          } w-1/2 h-full px-8 md:px-0 mt-32 md:mt-64 my-auto mx-auto flex flex-col border-2 border-green-500`}
-        >
-          <div className="border-2 border-blue-500 w-full h-full">
-            <SpringContainer />
-          </div>
-        </div>
-        */}
       </div>
     </div>
   );

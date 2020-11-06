@@ -102,5 +102,11 @@
   "send": "Senden",
   "goToPage": "Zu Seite",
   "of": "von",
-  "successModalText": "Nachricht gesendet! Ich werde sobald wie möglich antworten."
+  "successModalText": "Nachricht gesendet! Ich werde sobald wie möglich antworten.",
+  "whoIam": "Wer ich bin",
+  "passions": "Interessen",
+  "coding": "Programmieren",
+  "writing": "Schreiben",
+  "dogs": "Hunde",
+  "readNow": "Lesen"
 }

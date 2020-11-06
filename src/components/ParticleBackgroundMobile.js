@@ -1,6 +1,6 @@
 import React from "react";
 import Particles from "react-tsparticles";
-import codeSVG from "../assets/svg/code.svg"
+import codeSVG from "../assets/svg/raw/code.svg"
 import { ThemeContext } from "../components/DarkMode/ThemeProvider"
 
 export default function ParticleBackground() {

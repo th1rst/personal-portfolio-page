@@ -10,7 +10,7 @@ import { BookList } from "../assets/data/BookList";
 const PageCover = React.forwardRef((props, ref) => {
   return (
     <div ref={ref} data-density="hard">
-      <div>{props.children}</div>
+      <div className="cursor-pointer">{props.children}</div>
     </div>
   );
 });
@@ -18,7 +18,7 @@ const PageCover = React.forwardRef((props, ref) => {
 const Page = React.forwardRef((props, ref) => {
   return (
     <div ref={ref}>
-      <div>{props.children}</div>
+      <div className="cursor-pointer">{props.children}</div>
     </div>
   );
 });

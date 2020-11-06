@@ -102,5 +102,11 @@
   "send": "Send",
   "goToPage": "Go to page",
   "of": "of",
-  "successModalText": "Message sent! I'll be in touch shortly."
+  "successModalText": "Message sent! I'll be in touch shortly.",
+  "whoIam": "Who I am",
+  "passions": "Passions",
+  "coding": "Coding",
+  "writing": "Writing",
+  "dogs": "Dogs",
+  "readNow": "Read Now"
 }

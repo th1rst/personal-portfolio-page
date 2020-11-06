@@ -7,18 +7,18 @@ import {
   config,
   animated,
 } from "react-spring";
+import { Text } from "../components/Multilanguage/Text";
 import styled from "styled-components";
 import { BookList } from "../assets/data/BookList";
 
 const Container = styled(animated.div)`
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(100px, 1fr));
-  grid-gap: 25px;
-  padding: 25px;
-  background: white;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   border-radius: 5px;
-  cursor: pointer;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
   will-change: width, height;
 `;
@@ -26,7 +26,7 @@ const Container = styled(animated.div)`
 const Item = styled(animated.div)`
   width: 100%;
   height: 100%;
-  background: white;
+  margin: 0 50px;
   border-radius: 5px;
   will-change: transform, opacity;
 `;
@@ -40,13 +40,13 @@ const data = BookList.map((book) => {
 });
 
 export default function SpringContainer() {
-  const [open, set] = useState(false);
+  const [open, set] = useState(true);
   const springRef = useRef();
   const { size, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
-    from: { size: "1%", background: "black" },
-    to: { size: open ? "100%" : "1%", background: open ? "white" : "black" },
+    from: { size: "1%" },
+    to: { size: open ? "100%" : "1%" },
   });
 
   const transRef = useRef();
@@ -67,26 +67,31 @@ export default function SpringContainer() {
 
   return (
     <>
-      <p
-        className="text-white font-semibold uppercase underline cursor-pointer"
+      <Container
+        style={{ ...rest, width: size, height: size, cursor: "default" }}
         onClick={() => set((open) => !open)}
       >
-        Books
-      </p>
-      <div className="h-auto border-2 border-pink-500">
-        <Container
-          className="border-2 border-red-500"
-          style={{ ...rest, width: size, height: size, cursor: "default" }}
-        >
-          {transitions.map(({ item, key, props }) => (
-            <Item key={key} style={{ ...props }}>
+        {transitions.map(({ item, key, props }) => (
+          <Item key={key} style={{ ...props }}>
+            <div className="group w-auto h-auto">
+              <div className="w-full h-full flex flex row items-center justify-center">
+                <img
+                  className="group-hover:opacity-50 transition duration-200 ease-in-out"
+                  src={item.coverURL}
+                  alt={item.name}
+                />
+              </div>
               <Link to={`/previewer/${item.name}`}>
-                <img src={item.coverURL} alt={item.name} />
+                <div className="hidden group-hover:flex flex-row items-center justify-center absolute top-0 bottom-0 left-0 right-0 my-auto mx-auto bg-blue-400 hover:bg-blue-600 h-12 w-32 rounded-xl p-4 text-white transition duration-200 ease-in-out">
+                  <p className="font-semibold tracking-wide">
+                    <Text tid="readNow" />
+                  </p>
+                </div>
               </Link>
-            </Item>
-          ))}
-        </Container>
-      </div>
+            </div>
+          </Item>
+        ))}
+      </Container>
     </>
   );
 }
