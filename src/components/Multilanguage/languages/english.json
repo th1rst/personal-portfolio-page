@@ -26,6 +26,8 @@
   "personalPortfolioFeature3": "Serverless Contact Form via Formspree",
   "personalPortfolioFeature4": "tsParticles Hero Component",
   "personalPortfolioFeature5": "Multilanguage Support",
+  "personalPortfolioFeature6": "Dark Mode Support" ,
+  "personalPortfolioFeature7": "Reader Component with realistic page flipping",
   "mmaSubheading": "A personal activity and productivity tracker.",
   "aboutMma1": "A while ago, a friend of mine asked me if I could build a 'personal improvement' Webapp for him where he could track his activities and see where he spends his time on (productive tasks vs. unproductive tasks) so he could improve himself and his time management. It sounded boring at first, but the more I thought about it, the more I liked the idea because it's more 'interactive' than the Sites I've built before... and since I was looking for a new project idea anyways, I thought I'd go for it.",
   "aboutMma2": "Realistically, the App won't have many users, so learning to build a complete Backend for it would be too much - instead, I used Google Firebase Auth and Firestore as a Backend, which, in retrospect, were more than enough new technologies to learn at once. For Firebase auth, I stuck to a Tutorial by Rwieruch which was super helpful and teached me lots of things. While this project took me significantly longer than anticipated (because after Covid Lockdowns I started working full time again), it was SO much fun and although this wasn't my first React project, it finally 'clicked' to the point where I could work my way through the different Documentations to finish this project and had to google a lot less.",
@@ -105,8 +107,8 @@
   "successModalText": "Message sent! I'll be in touch shortly.",
   "whoIam": "Who I am",
   "passions": "Passions",
-  "coding": "Coding",
-  "writing": "Writing",
-  "dogs": "Dogs",
+  "codingHeading": "Coding",
+  "writingHeading": "Writing",
+  "dogsHeading": "Dogs",
   "readNow": "Read Now"
 }

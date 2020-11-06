@@ -10,6 +10,7 @@ import {
 import { Text } from "../components/Multilanguage/Text";
 import styled from "styled-components";
 import { BookList } from "../assets/data/BookList";
+import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 
 const Container = styled(animated.div)`
   position: relative;
@@ -36,10 +37,12 @@ const data = BookList.map((book) => {
     name: book.shortName,
     height: 400,
     coverURL: `${book.coverURL}`,
+    role: book.role,
   };
 });
 
 export default function SpringContainer() {
+  const { theme } = React.useContext(ThemeContext);
   const [open, set] = useState(true);
   const springRef = useRef();
   const { size, opacity, ...rest } = useSpring({
@@ -74,6 +77,11 @@ export default function SpringContainer() {
         {transitions.map(({ item, key, props }) => (
           <Item key={key} style={{ ...props }}>
             <div className="group w-auto h-auto">
+              <p
+                className={`${theme === "dark" ? "text-white" : "text-black"}`}
+              >
+                {item.role}
+              </p>
               <div className="w-full h-full flex flex row items-center justify-center">
                 <img
                   className="group-hover:opacity-50 transition duration-200 ease-in-out"

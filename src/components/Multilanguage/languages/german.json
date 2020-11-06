@@ -26,6 +26,8 @@
   "personalPortfolioFeature3": "Serverloses Kontaktformular via Formspree",
   "personalPortfolioFeature4": "tsParticles Hero Component",
   "personalPortfolioFeature5": "Multilanguage Support",
+  "personalPortfolioFeature6": "Dark Mode Support" ,
+  "personalPortfolioFeature7": "Reader mit realistischer Blätteranimation",
   "mmaSubheading": "Ein persönlicher Aktivitäts- und Produktivitätstracker",
   "aboutMma1": "Vor einiger Zeit fragte mich ein Freund, ob ich nicht eine 'Produktivitätssteigerungs-Webapp' für ihn machen könnte, mit der er seine Aktivitäten und ihre jeweilige (un)produktivität tracken könnte. Zunächst klang es langweilig, aber je mehr ich darüber nachdachte, desto mehr gefiel mir der Gedanke, weil es deutlich 'interaktiver' als das war, was ich vorher gemacht hatte... und da ich sowieso eine Idee für ein neues Projekt brauchte, habe ich mich an's Werk gemacht.",
   "aboutMma2": "Realistisch gesehen wird die App niemals viele Nutzer haben, daher wäre es zu viel des Guten gewesen, zu lernen, wie man ein komplettes Backend dafür codet - stattdessen habe ich mich für Firebase Auth und Firestore als BaaS entscheiden, was, im Rückblick betrachtet, genug Lernstoff beeinhaltete. Für Firebase Auth hatte ich mich an ein Tutorial von Rwieruch gehalten, was extrem nützlich war und mich viel gelehrt hat. Auch wenn dieses Projekt signifikant mehr Zeit in Anspruch genommen hat als geplant (speziell da ich nach dem Lockdown wieder vollzeit arbeitete), war es trotzdem extrem spaßig. Und auch wenn das nicht mein erstes React-Projekt war, hat es dennoch endlich richtig 'click' gemacht, sodass es von nun an ausgereicht hat, mich durch Dokumentationen zu wühlen und ich deutlich weniger googlen musste.",
@@ -105,8 +107,8 @@
   "successModalText": "Nachricht gesendet! Ich werde sobald wie möglich antworten.",
   "whoIam": "Wer ich bin",
   "passions": "Interessen",
-  "coding": "Programmieren",
-  "writing": "Schreiben",
-  "dogs": "Hunde",
+  "codingHeading": "Programmieren",
+  "writingHeading": "Schreiben",
+  "dogsHeading": "Hunde",
   "readNow": "Lesen"
 }

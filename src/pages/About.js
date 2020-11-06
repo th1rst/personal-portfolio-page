@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import firebaseLogo from "../assets/pictures/firebaseLogo.png";
 import { BookSVG } from "../assets/svg/components/BookSVG.js";
@@ -10,6 +11,7 @@ import { SiTailwindcss } from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import DogSVG from "../assets/svg/components/DogSVG";
 import { Text } from "../components/Multilanguage/Text";
+import { BookList } from "../assets/data/BookList";
 
 export default function About() {
   const { theme } = React.useContext(ThemeContext);
@@ -30,15 +32,15 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mt-6 flex flex-row items-center mb-12">
+          <div className="mt-6 flex flex-col md:flex-row items-center mb-12">
             <div className="self-start h-40 w-full flex items-center justify-center">
               <img
-                className="h-32 w-32 rounded-full object-cover"
+                className="h-32 w-32 rounded-full object-cover shadow-xl"
                 src="https://kochannek.com/profile.jpg"
                 alt="profile"
               />
             </div>
-            <p className="font-semibold tracking-tight leading-7 text-justify p-4 ml-10 inline-flex">
+            <p className="font-semibold tracking-tight leading-7 text-justify md:p-4 md:ml-10 inline-flex">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Exercitationem, sit rem natus quos repudiandae saepe, neque a
               culpa eius autem sunt tempore, ab nemo omnis! Blanditiis ipsa modi
@@ -55,46 +57,87 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mt-6 mb-12 w-full flex flex-row border-2 border-gray-800 rounded-lg">
+          <div className="mt-6 mb-12 w-full flex flex-row border-2 border-gray-800 rounded-lg shadow-xl">
             <div className="flex flex-col w-full">
-              <div className="flex flex-row flex-wrap w-full justify-around items-center font-bold tracking-wide text-2xl uppercase">
+              <div className="flex flex-col md:flex-row flex-wrap w-full justify-around items-center font-bold tracking-wide text-2xl uppercase">
                 <div
                   className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
                   onMouseEnter={() => setvisibleText("coding")}
-                  // Extra onClick for Mobile Version
-                  onClick={() => setvisibleText("coding")}
                 >
                   <CodeSVG />
-                  <Text tid="coding" />
+                  <Text tid="codingHeading" />
+                </div>
+
+                <div className="md:hidden mb-8">
+                  {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
+                  <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
+                    Coding Text Coding Text Coding Text Coding Text Coding Text
+                    Coding Text Coding Text Coding Text Coding Text Coding Text
+                    Coding Text Coding Text Coding Text Coding Text Coding Text
+                    Coding Text
+                  </p>
                 </div>
 
                 <div
                   className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
                   onMouseEnter={() => setvisibleText("writing")}
-                  onClick={() => setvisibleText("writing")}
                 >
                   <BookSVG />
-                  <Text tid="writing" />
+                  <Text tid="writingHeading" />
                 </div>
-
+                <div className="md:hidden mb-8">
+                  {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
+                  {BookList.map((item) => (
+                    <>
+                      <div className="w-auto h-auto">
+                        <p
+                          className={`${
+                            theme === "dark" ? "text-white" : "text-black"
+                          } text-base `}
+                        >
+                          {item.role}
+                        </p>
+                        <div className="w-full h-full px-4 flex flex row items-center justify-center">
+                          <img
+                            className="transition duration-200 ease-in-out"
+                            src={item.coverURL}
+                            alt={item.name}
+                          />
+                        </div>
+                      </div>
+                      <Link to={`/previewer/${item.shortName}`}>
+                        <div className="mt-2 mb-10 flex flex-row items-center justify-center mx-auto bg-blue-400 h-10 w-32 rounded-xl p-4 text-white">
+                          <p className="font-semibold text-base tracking-wide">
+                            <Text tid="readNow" />
+                          </p>
+                        </div>
+                      </Link>
+                    </>
+                  ))}
+                </div>
                 <div
                   className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
                   onMouseEnter={() => setvisibleText("dogs")}
-                  onClick={() => setvisibleText("dogs")}
                 >
                   <DogSVG />
-                  <Text tid="dogs" />
+                  <Text tid="dogsHeading" />
+                </div>
+                <div className="md:hidden mb-8">
+                  {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
+                  <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
+                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
+                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
+                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
+                  </p>
                 </div>
               </div>
-              <div className="flex flex-row w-full px-12 py-4 font-semibold tracking-tight leading-7 text-justify">
+              <div className="hidden md:flex flex-row w-full px-12 py-4 font-semibold tracking-tight leading-7 text-justify">
                 {visibleText === "coding" ? (
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Delectus neque quam exercitationem! Possimus fugit commodi a
-                    itaque, dolorum praesentium esse quidem veritatis et
-                    reiciendis mollitia dolore ipsam ex doloremque, eius
-                    excepturi. Quidem voluptatibus, asperiores pariatur
-                    consectetur officiis eligendi veniam inventore.
+                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
+                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
+                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
+                    CODING TEXT
                   </p>
                 ) : null}
 
@@ -125,7 +168,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="text-white font-bold uppercase mt-6 w-full border-2 border-gray-800 rounded-lg flex flex-row flex-wrap justify-around items-center mb-12">
+          <div className="text-white font-bold uppercase mt-6 w-full border-2 border-gray-800 rounded-lg flex flex-row flex-wrap justify-around items-center mb-12 shadow-xl">
             <div className="m-4 h-32 w-32 border-2 border-gray-800 bg-gray-900 rounded-full flex flex-col justify-center items-center">
               <FaReact className="w-16 h-16" style={{ color: "#00b7ff" }} />
               <p className="tracking-wider text-lg uppercase">React</p>

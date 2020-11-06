@@ -143,7 +143,7 @@ export default function Navigation() {
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
-              <span className="text-md uppercase font-semibold">
+              <span className="text-md pl-2 uppercase font-semibold">
                 <Text tid="navAbout" />
               </span>
 
@@ -156,7 +156,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
+                <div className="w-2/3 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
               </Transition>
             </Link>
 

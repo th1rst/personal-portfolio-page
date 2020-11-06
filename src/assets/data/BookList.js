@@ -11,6 +11,6 @@ export const BookList = [
         shortName: "hegrundlagen",
         coverURL: "https://kochannek.com/books/hegrundlagen/jpg/cover.jpg",
         pageCount: 55,
-        role: "Author"
+        role: "Author (Pseudonym)"
     }
 ]

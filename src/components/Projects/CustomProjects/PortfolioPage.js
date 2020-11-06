@@ -21,13 +21,15 @@ const features = [
   <Text tid="personalPortfolioFeature3" />,
   <Text tid="personalPortfolioFeature4" />,
   <Text tid="personalPortfolioFeature5" />,
+  <Text tid="personalPortfolioFeature6" />,
+  <Text tid="personalPortfolioFeature7" />,
 ];
 
 export default function PortfolioPage() {
   const { theme } = React.useContext(ThemeContext);
+
   const [moreInfoVisible, setMoreInfoVisible] = useState(false);
   const [hoveredFeaturesButton, setHoveredFeaturesButton] = useState(false);
-
   const [fade, setfade] = useState(false);
 
   const { opacity } = useSpring({
