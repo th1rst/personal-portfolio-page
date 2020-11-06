@@ -18,12 +18,13 @@ export default function About() {
   const [visibleText, setvisibleText] = useState("coding");
 
   return (
-    <div className="w-screen min-h-screen">
-      <div
-        className={`${
-          theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-        } absolute w-full h-auto flex justify-center`}
-      >
+    <div
+      className={`${
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+      }
+    w-screen min-h-screen`}
+    >
+      <div className="absolute w-full h-auto flex justify-center">
         <div className="p-12 w-full flex flex-col">
           <div className="flex flex-row justify-start items-center">
             <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />

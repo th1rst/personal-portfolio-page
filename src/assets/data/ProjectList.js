@@ -127,7 +127,7 @@ const projectList = [
       {
         name: "CSS 3",
         logo: <FaCss3Alt className="w-12 h-12" style={{ color: "#258ec8" }} />,
-        subtexts: ["CSS 3", "Custom CSS", "React-Bootstrap"],
+        subtexts: ["Custom CSS", "React-Bootstrap"],
       },
       {
         name: "Contentful",

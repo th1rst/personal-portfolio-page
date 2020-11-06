@@ -16,7 +16,7 @@ export function LanguageSelector() {
     <div className="ml-2 flex flex-row text-sm font-semibold">
       <span
         className={`mr-px text-xl ${
-          userLanguage === "english" ? "opacity-50" : "cursor-pointer"
+          userLanguage === "english" ? null : "cursor-pointer opacity-50"
         }`}
         onClick={() => userLanguageChange("english")}
         role="img"
@@ -29,7 +29,7 @@ export function LanguageSelector() {
 
       <span
         className={`ml-px text-xl ${
-          userLanguage === "german" ? "opacity-50" : "cursor-pointer"
+          userLanguage === "german" ? null : "cursor-pointer opacity-50"
         }`}
         onClick={() => userLanguageChange("german")}
         role="img"

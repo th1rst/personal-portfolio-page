@@ -14,14 +14,14 @@ export default function Home() {
 
   return (
     <animated.div style={{ opacity }}>
-      <div className="w-screen min-h-screen">
+      <div className="w-full min-h-screen">
         {width >= 800 ? <ParticleBackground /> : <ParticleBackgroundMobile />}
 
         <div className="absolute w-full h-screen flex justify-center pointer-events-none">
           <div
             className={`${
               theme === "dark" ? "text-white" : "text-black"
-            } px-8 md:px-0 mt-32 md:mt-64 my-auto mx-auto flex flex-col pointer-events-none`}
+            } px-8 md:px-0 mt-32 md:mt-64 mx-auto flex flex-col pointer-events-none`}
           >
             <div className="self-center">
               <p className="font-semibold text-5xl leading-none">Hi, </p>

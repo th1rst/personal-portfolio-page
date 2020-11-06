@@ -42,7 +42,7 @@ export default function Projects() {
       </h1>
 
       {/* PROJECTS CONTAINER */}
-      <div className="m-1 p-1 md:p-4 md:m-4 flex flex-col">
+      <div className="p-1 md:p-4 flex flex-col">
         {!hidden ? (
           <animated.div style={{ opacity }}>
             <ul>
