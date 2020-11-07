@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
+import { Text } from "../components/Multilanguage/Text";
+import { BookList } from "../assets/data/BookList";
+import SpringContainer from "../components/SpringContainer";
+
+//SVGs + PNGs
 import firebaseLogo from "../assets/pictures/firebaseLogo.png";
 import { BookSVG } from "../assets/svg/components/BookSVG.js";
 import { CodeSVG } from "../assets/svg/components/CodeSVG.js";
-import SpringContainer from "../components/SpringContainer";
+import { DogSVG } from "../assets/svg/components/DogSVG";
+
+//Icons
 import { FaHtml5, FaCss3Alt, FaReact, FaGithub } from "react-icons/fa";
 import { DiJavascript, DiPhotoshop } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
-import DogSVG from "../assets/svg/components/DogSVG";
-import { Text } from "../components/Multilanguage/Text";
-import { BookList } from "../assets/data/BookList";
 
 export default function About() {
   const { theme } = React.useContext(ThemeContext);
@@ -24,17 +28,17 @@ export default function About() {
       }
     w-screen min-h-screen`}
     >
-      <div className="absolute w-full h-auto flex justify-center">
+      <div className="w-full h-auto flex justify-center">
         <div className="p-12 w-full flex flex-col">
           <div className="flex flex-row justify-start items-center">
             <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
             <p className="text-2xl font-bold uppercase ml-10 inline-flex">
-              <Text tid="whoIam" />
+              <Text tid="whoIamHeading" />
             </p>
           </div>
 
           <div className="mt-6 flex flex-col md:flex-row items-center mb-12">
-            <div className="self-start h-40 w-full flex items-center justify-center">
+            <div className="justify-self-start self-center h-40 w-full flex items-center justify-center">
               <img
                 className="h-32 w-32 rounded-full object-cover shadow-xl"
                 src="https://kochannek.com/profile.jpg"
@@ -42,12 +46,10 @@ export default function About() {
               />
             </div>
             <p className="font-semibold tracking-tight leading-7 text-justify md:p-4 md:ml-10 inline-flex">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem, sit rem natus quos repudiandae saepe, neque a
-              culpa eius autem sunt tempore, ab nemo omnis! Blanditiis ipsa modi
-              placeat maiores, libero expedita accusantium nostrum delectus
-              nesciunt temporibus voluptate, id sapiente saepe obcaecati illum
-              incidunt officiis tempore dolorum, quidem dignissimos dolore.
+              <Text tid="whoIamText1" />
+              <br />
+              <Text tid="whoIamText2" />
+              <br />
             </p>
           </div>
 
@@ -72,10 +74,9 @@ export default function About() {
                 <div className="md:hidden mb-8">
                   {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
                   <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
-                    Coding Text Coding Text Coding Text Coding Text Coding Text
-                    Coding Text Coding Text Coding Text Coding Text Coding Text
-                    Coding Text Coding Text Coding Text Coding Text Coding Text
-                    Coding Text
+                    <Text tid="codingText1" />
+                    <br />
+                    <Text tid="codingText2" />
                   </p>
                 </div>
 
@@ -134,12 +135,11 @@ export default function About() {
               </div>
               <div className="hidden md:flex flex-row w-full px-12 py-4 font-semibold tracking-tight leading-7 text-justify">
                 {visibleText === "coding" ? (
-                  <p>
-                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
-                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
-                    CODING TEXT CODING TEXT CODING TEXT CODING TEXT CODING TEXT
-                    CODING TEXT
-                  </p>
+                  <>
+                    <Text tid="codingText1" />
+                    <br />
+                    <Text tid="codingText2" />
+                  </>
                 ) : null}
 
                 {visibleText === "writing" ? (

@@ -1,7 +1,7 @@
 import React from "react";
 import { GradientPinkBlue as IconGradient } from "@vx/gradient";
 
-export default function DogSVG() {
+export function DogSVG() {
   return (
     <svg
       version="1.1"
