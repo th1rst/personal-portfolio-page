@@ -101,6 +101,7 @@
   "emailRequired": "the email is required",
   "messageRequired": "the message is required",
   "captchaRequired": "the recaptcha needs to be completed",
+  "fieldRequired": "this field is required",
   "send": "Send",
   "goToPage": "Go to page",
   "of": "of",
@@ -115,5 +116,7 @@
   "writingHeading": "Writing",
   "dogsHeading": "Dogs",
   "readNow": "Read Now",
-  "imprintPrivacyPolicy": "Imprint / Privacy Policy"
+  "imprintPrivacyPolicy": "Imprint / Privacy Policy",
+  "acceptPrivacy": "I accept the",
+  "privacyPolicy": "Privacy Policy"
 }

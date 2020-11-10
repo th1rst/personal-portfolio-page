@@ -101,6 +101,7 @@
   "emailRequired": "Die Email wird benötigt",
   "messageRequired": "Die Nachricht wird benötigt",
   "captchaRequired": "Das ReCaptcha wird benötigt",
+  "fieldRequired": "Dieses Feld wird benötigt",
   "send": "Senden",
   "goToPage": "Zu Seite",
   "of": "von",
@@ -115,5 +116,7 @@
   "writingHeading": "Schreiben",
   "dogsHeading": "Hunde",
   "readNow": "Lesen",
-  "imprintPrivacyPolicy": "Impressum / Datenschutzerklärung"
+  "imprintPrivacyPolicy": "Impressum / Datenschutzerklärung",
+  "acceptPrivacy": "Ich akzeptiere die",
+  "privacyPolicy": "Datenschutzerklärung"
 }

@@ -1,11 +1,33 @@
 import React from "react";
-import { ReCaptcha, Input, Textarea, Button } from "react-rainbow-components";
+import {
+  ReCaptcha,
+  Input,
+  Textarea,
+  Button,
+  CheckboxGroup,
+} from "react-rainbow-components";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import SuccessModal from "./SuccessModal";
 import { Text } from "./Multilanguage/Text";
+import { Link } from "react-router-dom";
 
 const formID = process.env.REACT_APP_FORM_ID;
+
+const options = [
+  {
+    value: "checkboxOne",
+    label: (
+      <div className="inline-flex text-white">
+        <Text tid="acceptPrivacy" />
+        <Link className="ml-1 underline" to="imprintprivacypolicy">
+          <Text tid="privacyPolicy" />
+        </Link>
+      </div>
+    ),
+    disabled: false,
+  },
+];
 
 //React-Rainbow-Component adjusted to personal needs
 class ContactForm extends React.Component {
@@ -21,6 +43,8 @@ class ContactForm extends React.Component {
       recaptcha: undefined,
       recaptchaError: undefined,
       showModal: false,
+      checkboxError: true,
+      checkboxValue: [],
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -28,6 +52,7 @@ class ContactForm extends React.Component {
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
     this.handleReCaptchaSuccess = this.handleReCaptchaSuccess.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
     this.reCaptchaRef = React.createRef();
   }
 
@@ -69,6 +94,43 @@ class ContactForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    const error = {
+      userNameError: undefined,
+      emailError: undefined,
+      messageError: undefined,
+      recaptchaError: undefined,
+    };
+    let reload = false;
+    const { userName, email, message, recaptcha, checkboxError } = this.state;
+    if (userName === undefined || userName === "") {
+      error.userNameError = <Text tid="nameRequired" />;
+      reload = true;
+    }
+    if (email === undefined || email === "") {
+      error.emailError = <Text tid="emailRequired" />;
+      reload = true;
+    }
+    if (message === undefined || message === "") {
+      error.messageError = <Text tid="messageRequired" />;
+      reload = true;
+    }
+    if (recaptcha === undefined) {
+      error.recaptchaError = <Text tid="captchaRequired" />;
+      reload = true;
+    }
+    if (checkboxError !== false) {
+      error.checkboxError = <Text tid="fieldRequired" />;
+      reload = true;
+    }
+    if (reload) {
+      this.setState({ ...error });
+    } else {
+      this.sendFormData();
+      this.reCaptchaRef.current.reset();
+    }
+  }
+
+  sendFormData() {
     fetch(`https://formspree.io/f/${formID}`, {
       method: "POST",
       headers: {
@@ -92,36 +154,10 @@ class ContactForm extends React.Component {
       .catch(function (error) {
         console.error(error);
       });
+  }
 
-    const error = {
-      userNameError: undefined,
-      emailError: undefined,
-      messageError: undefined,
-      recaptchaError: undefined,
-    };
-    let reload = false;
-    const { userName, email, message, recaptcha } = this.state;
-    if (userName === undefined || userName === "") {
-      error.userNameError = <Text tid="nameRequired" />;
-      reload = true;
-    }
-    if (email === undefined || email === "") {
-      error.emailError = <Text tid="emailRequired" />;
-      reload = true;
-    }
-    if (message === undefined || message === "") {
-      error.messageError = <Text tid="messageRequired" />;
-      reload = true;
-    }
-    if (recaptcha === undefined) {
-      error.recaptchaError = <Text tid="captchaRequired" />;
-      reload = true;
-    }
-    if (reload) {
-      this.setState({ ...error });
-    } else {
-      this.reCaptchaRef.current.reset();
-    }
+  handleOnChange(values) {
+    this.setState({ values, checkboxError: !this.state.checkboxError });
   }
 
   render() {
@@ -134,6 +170,8 @@ class ContactForm extends React.Component {
       messageError,
       recaptchaError,
       showModal,
+      values,
+      checkboxError,
     } = this.state;
 
     const RECAPTCHA_APIKEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
@@ -182,6 +220,14 @@ class ContactForm extends React.Component {
                   error={recaptchaError}
                   onChange={this.handleReCaptchaSuccess}
                 />
+                <div className="mt-4">
+                  <CheckboxGroup
+                    error={checkboxError}
+                    options={options}
+                    value={values}
+                    onChange={this.handleOnChange}
+                  />
+                </div>
                 <Button
                   className="h-10 mt-8"
                   label={<Text tid="send" />}
