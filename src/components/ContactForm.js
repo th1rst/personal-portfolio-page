@@ -10,27 +10,14 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import SuccessModal from "./SuccessModal";
 import { Text } from "./Multilanguage/Text";
+import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import { Link } from "react-router-dom";
 
 const formID = process.env.REACT_APP_FORM_ID;
 
-const options = [
-  {
-    value: "checkboxOne",
-    label: (
-      <div className="inline-flex text-white">
-        <Text tid="acceptPrivacy" />
-        <Link className="ml-1 underline" to="imprintprivacypolicy">
-          <Text tid="privacyPolicy" />
-        </Link>
-      </div>
-    ),
-    disabled: false,
-  },
-];
-
 //React-Rainbow-Component adjusted to personal needs
 class ContactForm extends React.Component {
+  static contextType = ThemeContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -175,6 +162,7 @@ class ContactForm extends React.Component {
     } = this.state;
 
     const RECAPTCHA_APIKEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+    const { theme } = this.context;
 
     return (
       <>
@@ -223,7 +211,27 @@ class ContactForm extends React.Component {
                 <div className="mt-4">
                   <CheckboxGroup
                     error={checkboxError}
-                    options={options}
+                    options={[
+                      {
+                        value: "checkboxOne",
+                        label: (
+                          <div
+                            className={`${
+                              theme === "dark" ? "text-white" : "text-black"
+                            } inline-flex`}
+                          >
+                            <Text tid="acceptPrivacy" />
+                            <Link
+                              className="ml-1 underline"
+                              to="imprintprivacypolicy"
+                            >
+                              <Text tid="privacyPolicy" />
+                            </Link>
+                          </div>
+                        ),
+                        disabled: false,
+                      },
+                    ]}
                     value={values}
                     onChange={this.handleOnChange}
                   />

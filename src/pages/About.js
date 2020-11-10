@@ -127,9 +127,29 @@ export default function About() {
                 <div className="md:hidden mb-8">
                   {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
                   <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
-                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
-                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
-                    Dogs Text Dogs Text Dogs Text Dogs Text Dogs Text
+                    <Text tid="dogsText1" />
+                    <br />
+                    <Text tid="dogsText2" />{" "}
+                    <a
+                      className="underline"
+                      href="https://kochannek.com/teddy.jpg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Teddy
+                    </a>
+                    <Text tid="dogsText3" />
+                    <br />
+                    <Text tid="dogsText4" />
+                    <br />
+                    <Text tid="dogsText5" />
+                    <br />
+                    <br />
+                    <p className="italic text-center">
+                      &quot;
+                      <Text tid="dogsText6" />
+                      &quot;
+                    </p>
                   </p>
                 </div>
               </div>
@@ -149,13 +169,30 @@ export default function About() {
                 ) : null}
 
                 {visibleText === "dogs" ? (
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Delectus neque quam exercitationem! Possimus fugit commodi a
-                    itaque, dolorum praesentium esse quidem veritatis et
-                    reiciendis mollitia dolore ipsam ex doloremque, eius
-                    excepturi. Quidem voluptatibus, asperiores pariatur
-                    consectetur officiis eligendi veniam inventore.
+                  <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
+                    <Text tid="dogsText1" />
+                    <br />
+                    <Text tid="dogsText2" />{" "}
+                    <a
+                      className="underline"
+                      href="https://kochannek.com/teddy.jpg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Teddy
+                    </a>
+                    <Text tid="dogsText3" />
+                    <br />
+                    <Text tid="dogsText4" />
+                    <br />
+                    <Text tid="dogsText5" />
+                    <br />
+                    <br />
+                    <p className="italic text-center">
+                      &quot;
+                      <Text tid="dogsText6" />
+                      &quot;
+                    </p>
                   </p>
                 ) : null}
               </div>

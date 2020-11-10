@@ -101,7 +101,9 @@ export default class BookPreviewer extends React.Component {
     const { theme } = this.context;
 
     return (
-      <div className={theme === "dark" ? "bg-black" : "bg-white"}>
+      <div
+        className={`${theme === "dark" ? "bg-black" : "bg-white"} min-h-screen`}
+      >
         {loading ? (
           <LoadingSpinner />
         ) : (
@@ -128,9 +130,7 @@ export default class BookPreviewer extends React.Component {
                     <Text tid="goToPage" />
                     <input
                       className={`${
-                        theme === "dark"
-                          ? "bg-gray-200"
-                          : "bg-gray-400"
+                        theme === "dark" ? "bg-gray-200" : "bg-gray-400"
                       } text-black mx-2 w-10 rounded-lg text-center`}
                       name="currentPage"
                       type="input"
@@ -185,6 +185,7 @@ export default class BookPreviewer extends React.Component {
                 <PageCover>THE END</PageCover>
               </HTMLFlipBook>
             </div>
+            <div className="mt-8 mx-16 border border-gray-900" />
           </>
         )}
       </div>
