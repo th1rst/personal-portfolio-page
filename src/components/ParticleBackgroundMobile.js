@@ -10,7 +10,7 @@ export default function ParticleBackground() {
     <>
       <Particles
         id="tsparticles"
-        className="absolute w-full h-full"
+        className="absolute w-full min-h-screen h-full"
         options={{
           detectRetina: false,
           fpsLimit: 30,

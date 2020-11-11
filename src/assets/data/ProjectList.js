@@ -31,7 +31,7 @@ const projectList = [
     imageFront={mmaOverview}
     imageBack={mmaLogin}
     githubLink={
-      "https://github.com/th1rst/learning/tree/master/Projects/make-me-awesome"
+      "https://github.com/th1rst/make-me-awesome"
     }
     liveVersionLink={"https://kochannek.com/portfolio/make-me-awesome/"}
     hasLoginCredentials={true}
@@ -93,7 +93,7 @@ const projectList = [
     imageFront={ksrOverview}
     imageBack={ksrBack}
     githubLink={
-      "https://github.com/th1rst/learning/tree/master/Projects/kaufmanns-recipe-site"
+      "https://github.com/th1rst/kaufmanns-recipe-site"
     }
     liveVersionLink={
       "https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/"

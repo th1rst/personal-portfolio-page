@@ -107,7 +107,7 @@ export default function PortfolioPage() {
 
                   <div className="absolute top-0 w-full h-full flex flex-row justify-center items-center">
                     <a
-                      href="https://github.com/th1rst/learning/tree/master/Projects/personal-portfolio-page"
+                      href="https://github.com/th1rst/personal-portfolio-page"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -142,7 +142,7 @@ export default function PortfolioPage() {
                   {/* GITHUB */}
                   <a
                     className="flex flex-col items-center "
-                    href="https://github.com/th1rst/learning/tree/master/Projects/personal-portfolio-page"
+                    href="https://github.com/th1rst/personal-portfolio-page"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
