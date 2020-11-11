@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Portfolio Page
 
-## Available Scripts
+### built with React, Tailwind CSS and React-Spring
 
-In the project directory, you can run:
+![overview](https://kochannek.com/customSVG.gif)
 
-### `npm start`
+[Live Version](https://kochannek.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### About
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+While there are no fancy technical things to implement (like User Authentication, API calls or Database implementation), I made sure to make it as visually appealing as I could - although I am not a design-savvy person at all. After a certain amount of research, I stumbled upon React-Spring, which is amazing albeit rather complicated - so you'll find various animations throughout the page like springs, trails and transitions.
+Ever since my last project ('Make Me Awesome'), TailwindCSS has kind of grown on me so I used it again. What I like about Tailwind is that it doesn't come with pre-opinionated components like Bootstrap so there's more room for creative freedom.
 
-### `npm test`
+The entire page is open source under the MIT License and free for everyone to use and adjust to their personal needs. If there are any suggestions, just open a Pull Request.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies used
 
-### `npm run build`
+**Frontend / UI:**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React, Hooks, React Router, React Context, HOC's
+- Tailwind CSS
+- React-Icons
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Animations:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React-Spring (Hooks API)
+- Tailwind Transitions
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Hooks
+- tsParticles custom SVG Hero Component
+- Book Reader with realistic page flipping (react-pageflip)
+- Multilanguage Support
+- Dark / Light Mode
+- Smooth Animations with React-Spring
+- Serverless Contact Form via Formspree and ReCaptcha spam prevention
+- Easy to customize
+- Fully responsive (obviously)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Customization
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If someone thinks that it's worth cloning, the Portfolio is relatively easy to customize. The main Components to customize are:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### **assets/data/Booklist.js**
+Assuming most people didn't write books, you can delete this one including _pages/BookPreviewer.js_.
 
-## Learn More
+### **assets/data/ProjectList.js**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![defaultProject](https://kochannek.com/defaultProject.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ProjectList uses _/components/DefaultProject.js_ that accepts several props:
 
-### Code Splitting
+| Prop | Type |
+| ------------- |:-------------:|
+|**name (Heading)** | string or MultiLanguage Text Component |
+| **imageFront** | image |
+| **imageBack** | image |
+| **githubLink** | string |
+| **liveVersionLink** | string |
+| **hasLoginCredentials** | bool (Popover is shown or not) |
+| **userLogin** | string (**hasLoginCredentials** must be true) |
+| **passwordLogin** | string (**hasLoginCredentials** must be true) |
+| **projectShortDescription** | string |
+| **aboutProjectText** | JSX element |
+| **features** | string |
+| **techStack** | array of objects |
+| **techStack** -> {name} | string |
+| **techStack** -> {logo} | image / React-Icon |
+| **techStack** -> {subtexts} | array of strings |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+There is one exception in ProjectList: _CustomProjects/PortfolioPage.js_
 
-### Analyzing the Bundle Size
+As this is the current page the user is on, I made a slightly different version of DefaultProject without the LiveVersion Link and a different onHover animation. If you dont need this, you can delete it or use _DefaultProject.js_ for the current page.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### **assets/data/SkillList.js**
 
-### Making a Progressive Web App
+This Array of Objects is used in the "Skills" section of the /about page. It's fairly self-explanatory in the following Format: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+| key | value |
+| ------------- |:-------------:|
+| **name** | string |
+| **logo** | JSX element or image |
 
-### Advanced Configuration
+### **components/MultiLanguage/languages**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Currently available: English (default) and german. Obviously you can set this to any other language. If you do this, you must adjust the /MultiLanguage/Dictionary.js according to your needs. Also, need to change the flag icons in the Navbar accordingly.
 
-### Deployment
+The language files are in JSON Format and contain almost every Text on the Website, so most of the work will be done here.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+### **components/Navigation/AnimatedLogo** 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Currently the inner part of the gradient circle contains the first letter of my last name. Assuming that not everyone's last name starts with a "K", you have to adjust the SVG.
+
+### **pages/About**
+
+Obviously, this section is highly individual and while the main text can be adjusted in the dictionary JSON files, the "Passions" area must be manually customized.
+
+## TL;DR
+
+Customizable Portfolio Page. Hopefully looks pretty. Any issues? Open Pull Request.
+Very happy with the result!
