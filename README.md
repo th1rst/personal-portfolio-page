@@ -54,8 +54,8 @@ ProjectList uses _/components/DefaultProject.js_ that accepts several props:
 | Prop | Type |
 | ------------- |:-------------:|
 |**name (Heading)** | string or MultiLanguage Text Component |
-| **imageFront** | image |
-| **imageBack** | image |
+| **imageFront** | JSX element |
+| **imageBack** | JSX element |
 | **githubLink** | string |
 | **liveVersionLink** | string |
 | **hasLoginCredentials** | bool (Popover is shown or not) |
