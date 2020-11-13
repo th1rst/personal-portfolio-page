@@ -45,17 +45,13 @@ export default class BookPreviewer extends React.Component {
 
     BookList.forEach((book) => {
       if (book.shortName === slug) {
-        this.setState({
-          totalPages: book.pageCount,
-        });
-        this.getBook(book.pageCount, book.shortName, book.coverURL);
+        this.getBookContent(book.pageCount, book.shortName, book.coverURL);
       }
     });
   };
 
-  getBook = async (pages, name, cover) => {
+  getBookContent = async (pages, name, cover) => {
     const pageList = [];
-    const coverURL = cover;
 
     //create a list of all images (pages) to fetch
     for (let i = 1; i < pages; i++) {
@@ -63,11 +59,12 @@ export default class BookPreviewer extends React.Component {
     }
 
     //wait for every image to load
-    await Promise.all(pageList.map((url) => fetch(url))).then(
+    await Promise.all(pageList.map((url) => fetch(url))).then(() =>
       this.setState({
         loading: false,
         pageList: pageList,
-        coverURL: coverURL,
+        coverURL: cover,
+        totalPages: pages,
       })
     );
   };
