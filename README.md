@@ -84,7 +84,7 @@ This Array of Objects is used in the "Skills" section of the /about page. It's f
 
 ### **components/MultiLanguage/languages**
 
-Currently available: English (default) and german. Obviously you can set this to any other language. If you do this, you must adjust the /MultiLanguage/Dictionary.js according to your needs. Also, need to change the flag icons in the Navbar accordingly.
+Currently available: English (default) and german. Obviously you can set this to any other language. If you do this, you must adjust the /MultiLanguage/Dictionary.js according to your needs. Also, you need to change the flag icons in the Navbar accordingly.
 
 The language files are in JSON Format and contain almost every Text on the Website, so most of the work will be done here.
 
