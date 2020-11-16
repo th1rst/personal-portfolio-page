@@ -83,7 +83,7 @@ export default function ParticleBackground() {
               blink: false,
               color: "random",
               consent: false,
-              distance: 30,
+              distance: 25,
               enable: true,
               opacity: 2,
               width: 1
@@ -101,7 +101,7 @@ export default function ParticleBackground() {
               enable: true,
               outMode: "bounce",
               random: false,
-              speed: 1,
+              speed: 0.5,
               straight: false
             },
             number: {
@@ -110,7 +110,7 @@ export default function ParticleBackground() {
                 area: 2000
               },
               limit: 0,
-              value: 100
+              value: 200
             },
             opacity: {
               animation: {

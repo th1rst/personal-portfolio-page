@@ -122,7 +122,7 @@ export default class BookPreviewer extends React.Component {
                   <span
                     className={`${
                       theme === "dark" ? "text-white" : "text-black"
-                    } px-2 py-1 font-semibold uppercase tracking-wide`}
+                    } py-1 font-semibold uppercase tracking-wide`}
                   >
                     <Text tid="goToPage" />
                     <input
