@@ -170,7 +170,7 @@ class ContactForm extends React.Component {
         <div className="flex h-screen">
           <div className="w-full md:w-2/3 mx-auto">
             <form onSubmit={this.handleSubmit}>
-              <h1 className="mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
+              <h1 className="mt-12 mb-16 text-blue-400 text-center text-3xl uppercase font-semibold">
                 <Text tid="contactMe" />
               </h1>
               <div className="flex flex-row justify-center mx-16 mb-8">

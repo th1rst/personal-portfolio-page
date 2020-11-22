@@ -124,5 +124,12 @@
   "readNow": "Lesen",
   "imprintPrivacyPolicy": "Impressum / Datenschutzerklärung",
   "acceptPrivacy": "Ich akzeptiere die",
-  "privacyPolicy": "Datenschutzerklärung"
+  "privacyPolicy": "Datenschutzerklärung",
+  "cookieText1": "Diese Webseite verwendet Cookies, um das bestmögliche Nutzererlebnis zu schaffen.",
+  "cookieText2": "Mehr erfahren.",
+  "cookieAccept": "Akzeptieren",
+  "contactFormCookieText1": "Aufgrund der Google ReCaptcha validierung ist es notwendig, Cookies zu akzeptieren. Wenn du sie absichtlich nicht akzeptiert hast, kannst du das Kontaktformular leider nicht benutzen.",
+  "contactFormCookieText2": "In diesem Fall, sende einfach eine Email an",
+  "contactFormCookieText3": "Wenn du unabsichtlich die Gelegenheit verpasst hast, Cookies zuzustimmen, kannst du das",
+  "contactFormCookieText4": "hier noch einmal tun."
 }

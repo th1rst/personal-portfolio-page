@@ -124,5 +124,12 @@
   "readNow": "Read Now",
   "imprintPrivacyPolicy": "Imprint / Privacy Policy",
   "acceptPrivacy": "I accept the",
-  "privacyPolicy": "Privacy Policy"
+  "privacyPolicy": "Privacy Policy",
+  "cookieText1": "This website uses cookies to enhance the user experience.",
+  "cookieText2": "Learn more.",
+  "cookieAccept": "Accept",
+  "contactFormCookieText1": "Because of Google ReCaptcha validation, it is essential that you give consent to store cookies. If you didn't accept it on purpose, you cannot use the contact form.",
+  "contactFormCookieText2": "In this case, for further inquiries send an email to",
+  "contactFormCookieText3": "If you've somehow missed the opportunity to give your cookie consent, you can",
+  "contactFormCookieText4": "do it again."
 }

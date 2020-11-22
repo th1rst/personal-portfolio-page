@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ParticleBackground from "../components/ParticleBackground";
 import ParticleBackgroundMobile from "../components/ParticleBackgroundMobile";
 import useWindowDimensions from "../components/hooks/getWindowDimensions";
 import { Text } from "../components/Multilanguage/Text";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import { CTAbutton } from "../components/CTAbutton";
+import CookieConsent from "react-cookie-consent";
 
 export default function Home() {
   const { width } = useWindowDimensions();
@@ -54,6 +56,19 @@ export default function Home() {
           <CTAbutton />
         </div>
       </div>
+      <CookieConsent
+        location="bottom"
+        buttonText={<Text tid="cookieAccept" />}
+        cookieName="consentcookie"
+        style={{ background: "#070707", borderTop: "2px solid gray" }}
+        buttonStyle={{ color: "#000000", fontSize: "16px" }}
+        expires={150}
+      >
+        <Text tid="cookieText1" />{" "}
+        <Link className="ml-2 text-sm underline" to="/ImprintPrivacyPolicy">
+          <Text tid="cookieText2" />
+        </Link>
+      </CookieConsent>
     </div>
   );
 }
