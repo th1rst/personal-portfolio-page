@@ -5,6 +5,7 @@ import { FaHtml5, FaCss3Alt, FaReact, FaGithub } from "react-icons/fa";
 import { DiJavascript, DiPhotoshop } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
+import { IoLogoIonic } from "react-icons/io";
 
 export const SkillList = [
   {
@@ -18,6 +19,10 @@ export const SkillList = [
   {
     name: "Firebase",
     logo: <img className="w-16 h-16" src={firebaseLogo} alt="firebase" />,
+  },
+  {
+    name: "Ionic",
+    logo: <IoLogoIonic className="w-16 h-16" style={{ color: "#367cf7" }} />,
   },
   {
     name: "TailwindCSS",
@@ -66,4 +71,3 @@ export const SkillList = [
     logo: <FaHtml5 className="w-16 h-16" style={{ color: "#dc4d25" }} />,
   },
 ];
-

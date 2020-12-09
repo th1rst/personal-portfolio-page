@@ -30,9 +30,7 @@ const projectList = [
     name={"Make Me Awesome"}
     imageFront={mmaOverview}
     imageBack={mmaLogin}
-    githubLink={
-      "https://github.com/th1rst/make-me-awesome"
-    }
+    githubLink={"https://github.com/th1rst/make-me-awesome"}
     liveVersionLink={"https://kochannek.com/portfolio/make-me-awesome/"}
     hasLoginCredentials={true}
     userLogin={"john@doe.com"}
@@ -43,6 +41,16 @@ const projectList = [
         <Text tid="aboutMma1" />
         <br /> <br />
         <Text tid="aboutMma2" />
+        <br /> <br />
+        <Text tid="aboutMma3" />{" "}
+        <a
+          className="text-blue-400 underline"
+          href="https://kochannek.com/portfolio/make-me-awesome-ionic"
+          rel="noopener noreferrer"
+        >
+          App-Version
+        </a>{" "}
+        <Text tid="aboutMma4" />
       </div>
     }
     features={[
@@ -92,9 +100,7 @@ const projectList = [
     name={<Text tid="krsHeading" />}
     imageFront={ksrOverview}
     imageBack={ksrBack}
-    githubLink={
-      "https://github.com/th1rst/kaufmanns-recipe-site"
-    }
+    githubLink={"https://github.com/th1rst/kaufmanns-recipe-site"}
     liveVersionLink={
       "https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/"
     }
