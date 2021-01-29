@@ -31,11 +31,11 @@ export default function About() {
       {/* ----- ITEM 1 -----*/}
       <div className="flex flex-row justify-start items-center">
         <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-        <p className="text-2xl font-bold uppercase ml-10 inline-flex">
+        <p className="text-2xl font-bold uppercase ml-4 inline-flex">
           <Text tid="whoIamHeading" />
         </p>
       </div>
-      <div className="mt-6 flex flex-col md:flex-row items-center mb-12">
+      <div className="p-2 mt-6 flex flex-col md:flex-row items-center mb-12">
         <div className="justify-self-start self-center h-40 w-full flex items-center justify-center">
           <ProfilePicture />
         </div>
@@ -51,11 +51,11 @@ export default function About() {
       {/* ----- ITEM 2 -----*/}
       <div className="flex flex-row justify-start items-center">
         <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-        <p className="text-2xl font-bold uppercase ml-10 inline-flex">
+        <p className="text-2xl font-bold uppercase ml-4 inline-flex">
           <Text tid="passions" />
         </p>
       </div>
-      <div className="mt-6 mb-12 w-full flex flex-row border-2 border-gray-800 rounded-lg shadow-xl">
+      <div className="p-2 mt-6 mb-12 w-full flex flex-row border-2 border-gray-800 rounded-lg shadow-xl">
         <div className="flex flex-col w-full">
           <div className="flex flex-col md:flex-row flex-wrap w-full justify-around items-center font-bold tracking-wide text-2xl uppercase">
             <div
@@ -198,7 +198,7 @@ export default function About() {
       {/* ----- ITEM 3 -----*/}
       <div className="flex flex-row justify-start items-center">
         <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg" />
-        <p className="text-2xl font-bold uppercase ml-10 inline-flex">Skills</p>
+        <p className="text-2xl font-bold uppercase ml-4 inline-flex">Skills</p>
       </div>
       <div className="text-white font-bold uppercase mt-6 w-full border-2 border-gray-800 rounded-lg flex flex-row flex-wrap justify-around items-center mb-12 shadow-xl">
         {SkillList.map((skill) => (
@@ -221,7 +221,7 @@ export default function About() {
     w-screen min-h-screen`}
     >
       <div className="w-full h-auto flex justify-center">
-        <div className="p-12 w-full flex flex-col">
+        <div className="p-4 lg:p-12 w-full flex flex-col">
           {!hidden ? (
             <animated.div style={{ opacity }}>
               <ul>

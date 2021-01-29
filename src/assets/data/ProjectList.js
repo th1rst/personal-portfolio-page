@@ -22,8 +22,77 @@ import spBack from "../pictures/StartPage/spBack.png";
 import ppFront from "../pictures/PizzaPlace/ppFront.png";
 import ppBack from "../pictures/PizzaPlace/ppBack.png";
 import firebaseLogo from "../pictures/firebaseLogo.png";
+import nodeLogo from "../pictures/nodelogo.png";
+import expressLogo from "../pictures/expresslogo.png";
+import arbOverview from "../pictures/Arbitunity/arbOverview.png";
+import arbServerMap from "../pictures/Arbitunity/arbServerMap.png";
 
 const projectList = [
+  <DefaultProject
+    name={"Arbitunity"}
+    imageFront={arbServerMap}
+    imageBack={arbOverview}
+    githubLink={"https://github.com/th1rst/arbitunity"}
+    liveVersionLink={"https://kochannek.com/portfolio/arbitunity/"}
+    hasLoginCredentials={false}
+    projectShortDescription={<Text tid="arbSubheading" />}
+    aboutProjectText={
+      <div>
+        <Text tid="aboutArb1" />
+        <br /> <br />
+        <Text tid="aboutArb2" />
+        <br />
+        <Text tid="aboutArb3" />
+        <br /> <br />
+        <Text tid="aboutArb4" />
+        <br /> <br />
+        <Text tid="aboutArb5" />
+      </div>
+    }
+    features={[
+      <Text tid="arbFeature1" />,
+      <Text tid="arbFeature2" />,
+      <Text tid="arbFeature3" />,
+      <Text tid="arbFeature4" />,
+      <Text tid="arbFeature5" />,
+      <Text tid="arbFeature6" />,
+    ]}
+    techStack={[
+      {
+        name: "React 17",
+        logo: <FaReact className="w-12 h-12" style={{ color: "#00b7ff" }} />,
+        subtexts: ["Hooks"],
+      },
+      {
+        name: "Tailwind CSS",
+        logo: (
+          <SiTailwindcss className="w-12 h-12" style={{ color: "#38b2ac" }} />
+        ),
+        subtexts: ["Windmill UI", "Rainbow Components"],
+      },
+      {
+        name: "Material UI",
+        logo: (
+          <img
+            className="w-20 h-12"
+            src="https://camo.githubusercontent.com/58423e406b227112756822122631d9eca5ab83334a6f0d8f2a6305b086815747/68747470733a2f2f6d6174657269616c2d75692e636f6d2f7374617469632f6c6f676f2e737667"
+            alt="ExpressJS"
+          />
+        ),
+      },
+      {
+        name: "NodeJS",
+        logo: <img className="w-10 h-12" src={nodeLogo} alt="NodeJS" />,
+        subtexts: ["Proxy Server on VPS"],
+      },
+      {
+        name: "Express",
+        logo: <img className="w-22 h-12" src={expressLogo} alt="ExpressJS" />,
+        subtexts: ["Custom API", "HTTPS enabled Subdomain"],
+      },
+    ]}
+  />,
+
   <PortfolioPage />,
 
   <DefaultProject

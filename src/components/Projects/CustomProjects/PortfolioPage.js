@@ -23,6 +23,7 @@ const features = [
   <Text tid="personalPortfolioFeature5" />,
   <Text tid="personalPortfolioFeature6" />,
   <Text tid="personalPortfolioFeature7" />,
+  <Text tid="personalPortfolioFeature8" />
 ];
 
 export default function PortfolioPage() {

@@ -1,8 +1,11 @@
 import React from "react";
 
 import firebaseLogo from "../pictures/firebaseLogo.png";
+import nodeLogo from "../pictures/nodelogo.png";
+import expressLogo from "../pictures/expresslogo.png";
+import linuxLogo from "../pictures/linuxLogo.png";
 import { FaHtml5, FaCss3Alt, FaReact, FaGithub } from "react-icons/fa";
-import { DiJavascript, DiPhotoshop } from "react-icons/di";
+import { DiJavascript } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import { IoLogoIonic } from "react-icons/io";
@@ -19,6 +22,14 @@ export const SkillList = [
   {
     name: "Firebase",
     logo: <img className="w-16 h-16" src={firebaseLogo} alt="firebase" />,
+  },
+  {
+    name: "NodeJS",
+    logo: <img className="w-14 h-16" src={nodeLogo} alt="Node JS" />,
+  },
+  {
+    name: "Express",
+    logo: <img className="w-14 h-16" src={expressLogo} alt="Express JS" />,
   },
   {
     name: "Ionic",
@@ -59,8 +70,8 @@ export const SkillList = [
     ),
   },
   {
-    name: "Photoshop",
-    logo: <DiPhotoshop className="w-16 h-16" style={{ color: "#00b7ff" }} />,
+    name: "Linux",
+    logo: <img className="w-14 h-16" src={linuxLogo} alt="Linux" />,
   },
   {
     name: "CSS 3",
