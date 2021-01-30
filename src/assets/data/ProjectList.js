@@ -45,8 +45,10 @@ const projectList = [
         <Text tid="aboutArb3" />
         <br /> <br />
         <Text tid="aboutArb4" />
-        <br /> <br />
+        <br />
         <Text tid="aboutArb5" />
+        <br /> <br />
+        <Text tid="aboutArb6" />
       </div>
     }
     features={[
@@ -68,7 +70,7 @@ const projectList = [
         logo: (
           <SiTailwindcss className="w-12 h-12" style={{ color: "#38b2ac" }} />
         ),
-        subtexts: ["Windmill UI", "Rainbow Components"],
+        subtexts: ["Tailwind 2.0"],
       },
       {
         name: "Material UI",
@@ -79,6 +81,7 @@ const projectList = [
             alt="ExpressJS"
           />
         ),
+        subtexts: ["Components", "Transitions"],
       },
       {
         name: "NodeJS",

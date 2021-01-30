@@ -1,7 +1,7 @@
 // https://github.com/Nodlik/react-pageflip adjusted to personal needs
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
-import LoadingSpinner from "../components/LoadingSpinner";
+import { ProgressBar } from "react-rainbow-components";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import { Text } from "../components/Multilanguage/Text";
@@ -31,6 +31,8 @@ export default class BookPreviewer extends React.Component {
       currentPage: 0,
       totalPages: 0,
       loading: true,
+      alreadyLoadedPage: 1,
+      loadingPercent: 0,
       userInput: "",
       bookName: "",
     };
@@ -45,6 +47,7 @@ export default class BookPreviewer extends React.Component {
 
     BookList.forEach((book) => {
       if (book.shortName === slug) {
+        this.setState({ totalPages: book.pageCount });
         this.getBookContent(book.pageCount, book.shortName, book.coverURL);
       }
     });
@@ -58,15 +61,39 @@ export default class BookPreviewer extends React.Component {
       pageList.push(`https://kochannek.com/books/${name}/jpg/seite${i}.jpg`);
     }
 
-    //wait for every image to load
-    await Promise.all(pageList.map((url) => fetch(url))).then(() =>
+    const asd = pageList.map(async (url) => {
+      await this.finishImageLoading(url).then(() => {
+        this.setState({
+          alreadyLoadedPage: this.state.alreadyLoadedPage + 1,
+        });
+        this.calculateLoadingPercent(this.state.alreadyLoadedPage);
+      });
+    });
+
+    await Promise.all(asd).then(() => {
       this.setState({
         loading: false,
         pageList: pageList,
         coverURL: cover,
         totalPages: pages,
-      })
-    );
+      });
+    });
+  };
+
+  finishImageLoading(url) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => res(img);
+      img.onerror = rej;
+      img.src = url;
+    });
+  }
+
+  calculateLoadingPercent = (currentPage) => {
+    const onePercent = this.state.totalPages / 100; // 2.36
+    const rest = Math.trunc(currentPage / onePercent);
+
+    this.setState({ loadingPercent: rest });
   };
 
   nextButtonClick = () => {
@@ -94,7 +121,14 @@ export default class BookPreviewer extends React.Component {
   };
 
   render() {
-    const { loading, userInput, totalPages, pageList, coverURL } = this.state;
+    const {
+      loading,
+      userInput,
+      totalPages,
+      pageList,
+      coverURL,
+      alreadyLoadedPage,
+    } = this.state;
     const { theme } = this.context;
 
     return (
@@ -102,7 +136,21 @@ export default class BookPreviewer extends React.Component {
         className={`${theme === "dark" ? "bg-black" : "bg-white"} min-h-screen`}
       >
         {loading ? (
-          <LoadingSpinner />
+          <div
+            className={`${
+              theme === "dark" ? "text-white" : "text-black"
+            } h-screen w-full flex flex-col justify-center items-center text-center`}
+          >
+            <div className="w-1/3">
+              <p>
+                Loading Page {alreadyLoadedPage} of {totalPages}
+              </p>
+              <ProgressBar value={this.state.loadingPercent} />
+              <p className="font-bold uppercase">
+                {this.state.loadingPercent}%{" "}
+              </p>
+            </div>
+          </div>
         ) : (
           <>
             {/* CONTAINER FOR NAVIGATION ELEMENTS */}

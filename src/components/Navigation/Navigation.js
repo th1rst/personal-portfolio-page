@@ -15,6 +15,7 @@ import { ThemeContext } from "../DarkMode/ThemeProvider";
 export default function Navigation() {
   const [hidden, setHidden] = useState(true);
   const [settingsVisible, setsettingsVisible] = useState(false);
+  const [hoveredGithub, setHoveredGithub] = useState(false);
   const [hoveredProjects, setHoveredProjects] = useState(false);
   const [hoveredAbout, setHoveredAbout] = useState(false);
   const [hoveredContact, setHoveredContact] = useState(false);
@@ -35,6 +36,18 @@ export default function Navigation() {
       <ThemeSelector />
       <LanguageSelector />
     </div>,
+
+    <a
+      href="https://github.com/th1rst"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center"
+      onClick={() => setHidden(true)}
+    >
+      <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
+        Github
+      </span>
+    </a>,
 
     <Link
       to="/projects"
@@ -109,8 +122,32 @@ export default function Navigation() {
         {/* DESKTOP VERSION */}
         <div className="hidden lg:inline-flex lg:flex-grow lg:w-auto">
           <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto lg:items-center items-start flex flex-col lg:h-auto">
+            <a
+              onMouseEnter={() => setHoveredGithub(true)}
+              onMouseLeave={() => setHoveredGithub(false)}
+              href="https://github.com/th1rst"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${
+                theme === "dark" ? "text-gray-300" : "text-gray-800"
+              } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
+            >
+              <span className="text-md uppercase font-semibold">Github</span>
+
+              <Transition
+                show={hoveredGithub}
+                enter="transition-all duration-200"
+                enterFrom="w-0 opacity-0"
+                enterTo="w-11/12 mx-auto opacity-100"
+                leave="transition-all duration-200"
+                leaveFrom="w-11/12 opacity-100"
+                leaveTo="w-0 mx-auto opacity-0"
+              >
+                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500" />
+              </Transition>
+            </a>
+
             <Link
-              name="link1"
               onMouseEnter={() => setHoveredProjects(true)}
               onMouseLeave={() => setHoveredProjects(false)}
               to="/projects"
