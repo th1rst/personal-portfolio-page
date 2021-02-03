@@ -29,6 +29,76 @@ import arbServerMap from "../pictures/Arbitunity/arbServerMap.png";
 
 const projectList = [
   <DefaultProject
+  name={"Make Me Awesome"}
+  imageFront={mmaOverview}
+  imageBack={mmaLogin}
+  githubLink={"https://github.com/th1rst/make-me-awesome"}
+  liveVersionLink={"https://kochannek.com/portfolio/make-me-awesome/"}
+  hasLoginCredentials={true}
+  userLogin={"john@doe.com"}
+  passwordLogin={"testuser123"}
+  projectShortDescription={<Text tid="mmaSubheading" />}
+  aboutProjectText={
+    <div>
+      <Text tid="aboutMma1" />
+      <br /> <br />
+      <Text tid="aboutMma2" />
+      <br /> <br />
+      <Text tid="aboutMma3" />{" "}
+      <a
+        className="text-blue-400 underline"
+        href="https://kochannek.com/portfolio/make-me-awesome-ionic"
+        rel="noopener noreferrer"
+      >
+        App-Version
+      </a>{" "}
+      <Text tid="aboutMma4" />
+    </div>
+  }
+  features={[
+    <Text tid="mmaFeature1" />,
+    <Text tid="mmaFeature2" />,
+    <Text tid="mmaFeature3" />,
+    <Text tid="mmaFeature4" />,
+    <Text tid="mmaFeature5" />,
+    <Text tid="mmaFeature6" />,
+    <Text tid="mmaFeature7" />,
+    <Text tid="mmaFeature8" />,
+    <Text tid="mmaFeature9" />,
+  ]}
+  techStack={[
+    {
+      name: "React 17",
+      logo: <FaReact className="w-12 h-12" style={{ color: "#00b7ff" }} />,
+      subtexts: ["Hooks", "React Router", "Context API"],
+    },
+    {
+      name: "Tailwind CSS",
+      logo: (
+        <SiTailwindcss className="w-12 h-12" style={{ color: "#38b2ac" }} />
+      ),
+      subtexts: ["Windmill UI", "Rainbow Components"],
+    },
+    {
+      name: "Firebase",
+      logo: <img className="w-12 h-12" src={firebaseLogo} alt="firebase" />,
+      subtexts: ["User Authentication", "Firestore"],
+    },
+    {
+      name: "ApexCharts",
+      logo: (
+        <img
+          className="w-16 h-12"
+          src="https://camo.githubusercontent.com/234f6fe1b4fdef71cd8e1f5fbad043093d023dba/68747470733a2f2f617065786368617274732e636f6d2f6d656469612f72656163742d617065786368617274732e706e67"
+          alt="apexcharts"
+        />
+      ),
+      subtexts: ["Custom Sorting Algorithm"],
+    },
+  ]}
+/>,
+  
+  <DefaultProject
     name={"Arbitunity"}
     imageFront={arbServerMap}
     imageBack={arbOverview}
@@ -91,82 +161,11 @@ const projectList = [
       {
         name: "Express",
         logo: <img className="w-22 h-12" src={expressLogo} alt="ExpressJS" />,
-        subtexts: ["Custom API", "HTTPS enabled Subdomain"],
       },
     ]}
   />,
 
   <PortfolioPage />,
-
-  <DefaultProject
-    name={"Make Me Awesome"}
-    imageFront={mmaOverview}
-    imageBack={mmaLogin}
-    githubLink={"https://github.com/th1rst/make-me-awesome"}
-    liveVersionLink={"https://kochannek.com/portfolio/make-me-awesome/"}
-    hasLoginCredentials={true}
-    userLogin={"john@doe.com"}
-    passwordLogin={"testuser123"}
-    projectShortDescription={<Text tid="mmaSubheading" />}
-    aboutProjectText={
-      <div>
-        <Text tid="aboutMma1" />
-        <br /> <br />
-        <Text tid="aboutMma2" />
-        <br /> <br />
-        <Text tid="aboutMma3" />{" "}
-        <a
-          className="text-blue-400 underline"
-          href="https://kochannek.com/portfolio/make-me-awesome-ionic"
-          rel="noopener noreferrer"
-        >
-          App-Version
-        </a>{" "}
-        <Text tid="aboutMma4" />
-      </div>
-    }
-    features={[
-      <Text tid="mmaFeature1" />,
-      <Text tid="mmaFeature2" />,
-      <Text tid="mmaFeature3" />,
-      <Text tid="mmaFeature4" />,
-      <Text tid="mmaFeature5" />,
-      <Text tid="mmaFeature6" />,
-      <Text tid="mmaFeature7" />,
-      <Text tid="mmaFeature8" />,
-      <Text tid="mmaFeature9" />,
-    ]}
-    techStack={[
-      {
-        name: "React 16",
-        logo: <FaReact className="w-12 h-12" style={{ color: "#00b7ff" }} />,
-        subtexts: ["React Router", "Context API"],
-      },
-      {
-        name: "Tailwind CSS",
-        logo: (
-          <SiTailwindcss className="w-12 h-12" style={{ color: "#38b2ac" }} />
-        ),
-        subtexts: ["Windmill UI", "Rainbow Components"],
-      },
-      {
-        name: "Firebase",
-        logo: <img className="w-12 h-12" src={firebaseLogo} alt="firebase" />,
-        subtexts: ["Firebase Auth", "Firestore"],
-      },
-      {
-        name: "ApexCharts",
-        logo: (
-          <img
-            className="w-16 h-12"
-            src="https://camo.githubusercontent.com/234f6fe1b4fdef71cd8e1f5fbad043093d023dba/68747470733a2f2f617065786368617274732e636f6d2f6d656469612f72656163742d617065786368617274732e706e67"
-            alt="apexcharts"
-          />
-        ),
-        subtexts: ["Custom Sorting Algorithm"],
-      },
-    ]}
-  />,
 
   <DefaultProject
     name={<Text tid="krsHeading" />}

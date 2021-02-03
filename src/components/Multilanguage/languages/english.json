@@ -23,7 +23,7 @@
   "aboutArb3": "After about a day of reading through Documentation and watching Videos about Node and Express, the (very small) Backend was finished, running and working. 'Finally', I thought, and deployed my Frontend… but then Firefox gave me the “Blocked Mixed Content” error because my Frontend was on HTTPS and my Backend on HTTP. After finding out the hard way that I couldn’t get an SSL certificate to work on a “bare IP” VPS (except for self-signed ones), I actually went with a solution of creating a Subdomain, adding DNS/A entries an let Certbot do its magic on my VPS.",
   "aboutArb4": "One feature that I’d like to add in the future is checking the trading volume of coins that show up in the results. Right now, that has to be done manually and that’s a tedious process. Doing so with Frontend code would result in too many API calls for the free tier, so I’m thinking about setting up a MongoDB and caching the trading volumes in intervals.",
   "aboutArb5": "It certainly is a less UI-focused project than my previous ones, and more heavy on sorting, filtering and calculating, but its practical use-case is awesome for everyone who is into Cryptocurrency trading.",
-  "aboutArb6": "Note: the Proxy Server is running on a cheap 1-Core Linux VPS located in St. Petersburg, Russia, so load times are increased roughly about +800ms per API call.",
+  "aboutArb6": "Note: the Proxy Server is running on a cheap 1-Core Linux VPS located in St. Petersburg, Russia, so load times are increased roughly about +200ms per API call.",
   "arbFeature1": "Filtering hundreds of Cryptos across 9 Exchanges",
   "arbFeature2": "Clean UI",
   "arbFeature3": "HTTPS enabled Proxy Server on a VPS",
