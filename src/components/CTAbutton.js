@@ -1,3 +1,6 @@
+// "Call To Action" Button on the main page.
+// Text: "Take a look at my work ->"
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";

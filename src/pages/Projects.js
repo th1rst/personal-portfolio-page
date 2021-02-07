@@ -38,7 +38,7 @@ export default function Projects() {
           theme === "dark" ? "text-white" : "text-black"
         } text-xs font-semibold mb-12 uppercase text-center`}
       >
-       
+        <Text tid="projectsSubheading" />
       </h1>
 
       {/* PROJECTS CONTAINER */}

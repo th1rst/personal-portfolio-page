@@ -1,3 +1,5 @@
+// React-Spring animation for the "Writing" Section on /about
+
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {

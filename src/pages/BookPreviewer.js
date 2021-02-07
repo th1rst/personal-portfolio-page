@@ -1,4 +1,6 @@
 // https://github.com/Nodlik/react-pageflip adjusted to personal needs
+// (cannot be converted to functional component)
+
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
 import { ProgressBar } from "react-rainbow-components";
@@ -43,6 +45,9 @@ export default class BookPreviewer extends React.Component {
   }
 
   findBookFromURL = () => {
+    // Find Book data with only the Slug passed as props.
+    // Slug hast to be specified exactly like Book.shortName
+    // (found in /data/BookList.js)
     const slug = this.props.match.params.slug;
 
     BookList.forEach((book) => {
@@ -56,11 +61,12 @@ export default class BookPreviewer extends React.Component {
   getBookContent = async (pages, name, cover) => {
     const pageList = [];
 
-    //create a list of all images (pages) to fetch
+    // create a list of all pages (JPEG images) to fetch
     for (let i = 1; i < pages; i++) {
       pageList.push(`https://kochannek.com/books/${name}/jpg/seite${i}.jpg`);
     }
 
+    // wait for it to have FULLY loaded, update the "Loading" percent
     const asd = pageList.map(async (url) => {
       await this.finishImageLoading(url).then(() => {
         this.setState({
@@ -70,6 +76,7 @@ export default class BookPreviewer extends React.Component {
       });
     });
 
+    // if everything is done, remove the loading flag and show content
     await Promise.all(asd).then(() => {
       this.setState({
         loading: false,
@@ -90,7 +97,7 @@ export default class BookPreviewer extends React.Component {
   }
 
   calculateLoadingPercent = (currentPage) => {
-    const onePercent = this.state.totalPages / 100; // 2.36
+    const onePercent = this.state.totalPages / 100;
     const rest = Math.trunc(currentPage / onePercent);
 
     this.setState({ loadingPercent: rest });
